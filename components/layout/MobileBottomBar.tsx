@@ -29,7 +29,7 @@ export function MobileBottomBar() {
             <WhatsAppIcon className="h-5 w-5" />
             WhatsApp
           </a>
-          <Link href="/teklif-al" className={`${item} bg-accent text-white`}>
+          <Link href="/teklif-al" className={`${item} bg-accent-strong text-white`}>
             <ArrowUpRight className="h-5 w-5" aria-hidden />
             Teklif Al
           </Link>

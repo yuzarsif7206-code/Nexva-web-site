@@ -74,7 +74,7 @@ export function WorkCard({
     <Link href={`/isler/${work.slug}`} data-cursor="view" className="work-card group block">
       <div className="relative">
         <WorkCover work={work} sizes={sizes} priority={priority} fixedRatio={fixedRatio} />
-        <span className="work-view absolute right-3 bottom-3 inline-flex items-center gap-1.5 rounded-full bg-accent px-3.5 py-1.5 text-xs font-bold tracking-[0.14em] text-white uppercase">
+        <span className="work-view absolute right-3 bottom-3 inline-flex items-center gap-1.5 rounded-full bg-accent-strong px-3.5 py-1.5 text-xs font-bold tracking-[0.14em] text-white uppercase">
           İncele <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
         </span>
       </div>

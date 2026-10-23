@@ -33,7 +33,7 @@ function Gallery({ works, active }: { works: Work[]; active: string }) {
                   className={cn(
                     "inline-flex min-h-11 items-center rounded-full border px-4 text-sm font-semibold whitespace-nowrap transition-colors",
                     on
-                      ? "border-accent bg-accent text-white"
+                      ? "border-accent-strong bg-accent-strong text-white"
                       : "border-white/15 bg-white/5 text-fg/85 hover:border-white/30",
                   )}
                 >

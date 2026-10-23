@@ -43,7 +43,7 @@ export function Hero() {
 
         <h1
           id="hero-title"
-          className="display h1-hero hero-in mt-8 text-balance lg:mt-10"
+          className="display h1-hero hero-in-lcp mt-8 text-balance lg:mt-10"
           style={{ ["--i" as string]: 3 }}
         >
           <span className="block lg:inline">{hero.h1[0]}</span>{" "}

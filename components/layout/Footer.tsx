@@ -130,12 +130,11 @@ export function Footer() {
       </div>
 
       {/* dev arka plan yazısı */}
-      <p
+      <span
         aria-hidden
-        className="display pointer-events-none -mb-[0.18em] text-center text-[22vw] leading-none text-white/[0.025] select-none"
-      >
-        NEXVA
-      </p>
+        data-text="NEXVA"
+        className="ghost-text display pointer-events-none -mb-[0.18em] block text-center text-[22vw] leading-none text-white/[0.025] select-none"
+      />
     </footer>
   );
 }

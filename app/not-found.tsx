@@ -18,9 +18,11 @@ export default function NotFound() {
         <Logo />
       </div>
       <div className="container-x flex flex-1 flex-col items-center justify-center py-16 text-center">
-        <p className="display text-[clamp(6rem,30vw,14rem)] leading-none text-white/10" aria-hidden>
-          404
-        </p>
+        <span
+          aria-hidden
+          data-text="404"
+          className="ghost-text display block text-[clamp(6rem,30vw,14rem)] leading-none text-white/10"
+        />
         <h1 className="display h2-section -mt-4 text-balance md:-mt-8">
           Bu sayfa <span className="text-accent">dağıldı.</span>
         </h1>

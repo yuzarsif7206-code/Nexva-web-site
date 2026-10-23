@@ -49,9 +49,11 @@ export default function AboutPage() {
                       <span className="grid h-12 w-12 place-items-center rounded-2xl bg-accent/12 text-accent ring-1 ring-accent/25">
                         <Icon className="h-6 w-6" aria-hidden />
                       </span>
-                      <span className="display text-3xl text-white/15 tabular-nums" aria-hidden>
-                        {pad2(i + 1)}
-                      </span>
+                      <span
+                        aria-hidden
+                        data-text={pad2(i + 1)}
+                        className="ghost-text display text-3xl text-white/15 tabular-nums"
+                      />
                     </div>
                     <h3 className="display h3-card mt-8">{p.title}</h3>
                     <p className="mt-2 text-fg/75">{p.text}</p>

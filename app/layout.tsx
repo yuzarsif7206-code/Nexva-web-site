@@ -5,9 +5,10 @@ import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "@/lib/seo";
 import { SITE } from "@/lib/site-config";
 import "./globals.css";
 
+// Başlık fontu: yalnızca italic 800 (tüm başlıklar bu ağırlıkta; 700 dosyası LCP yolunu ağırlaştırıyordu).
 const barlow = Barlow_Condensed({
   variable: "--font-barlow",
-  weight: ["700", "800"],
+  weight: ["800"],
   style: ["italic"],
   subsets: ["latin", "latin-ext"],
   display: "swap",

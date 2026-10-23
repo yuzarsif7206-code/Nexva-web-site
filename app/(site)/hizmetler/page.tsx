@@ -40,9 +40,11 @@ export default function ServicesPage() {
           <section key={g} id={g} aria-labelledby={`${g}-title`} className="border-t border-white/[0.06] py-14 md:py-20">
             <div className="container-x grid gap-8 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-16">
               <div className="lg:sticky lg:top-28 lg:self-start">
-                <p className="display text-5xl text-white/10 tabular-nums md:text-7xl" aria-hidden>
-                  {pad2(gi + 1)}
-                </p>
+                <span
+                  aria-hidden
+                  data-text={pad2(gi + 1)}
+                  className="ghost-text display block text-5xl text-white/10 tabular-nums md:text-7xl"
+                />
                 <h2 id={`${g}-title`} className="display h2-section mt-2">
                   {groups[g].title}
                 </h2>
