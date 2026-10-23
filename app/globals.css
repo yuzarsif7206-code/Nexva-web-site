@@ -696,6 +696,11 @@ html.lenis {
   animation: mask-up 0.7s var(--ease-spring) both;
 }
 
+.success-pixel {
+  opacity: 0;
+  animation: pixel-fall 1.2s var(--ease-spring) both;
+}
+
 /* Skip link */
 .skip-link {
   position: absolute;

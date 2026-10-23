@@ -58,7 +58,8 @@ const base = contactSchema.extend({
   zamanlama: z.enum(ZAMANLAMALAR, { message: "Lütfen bir seçenek belirleyin" }),
   reklamButcesi: z.enum(REKLAM_BUTCELERI).optional(),
   hp: z.string().optional(), // honeypot
-  t: z.number().int(), // form açılış zamanı (ms)
+  // Formun açık kaldığı süre (ms). Saat farkından etkilenmemek için istemcide performance.now() ile ölçülür.
+  t: z.number().int().nonnegative(),
 });
 
 export const leadSchema = z
