@@ -28,6 +28,7 @@ import { StepNeed } from "./steps/StepNeed";
 import { SuccessScreen } from "./SuccessScreen";
 
 const loadFeatures = () => import("./motion-features").then((mod) => mod.default);
+const now = () => performance.now();
 
 type Status =
   | { kind: "idle" }
@@ -57,7 +58,7 @@ function LeadFunnel({ src }: { src: string }) {
   const timer = useRef<number | undefined>(undefined);
 
   useEffect(() => {
-    opened.current = performance.now();
+    opened.current = now();
     return () => window.clearTimeout(timer.current);
   }, []);
 
@@ -137,7 +138,7 @@ function LeadFunnel({ src }: { src: string }) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(
-          buildPayload(draft, performance.now() - opened.current, hpRef.current?.value ?? ""),
+          buildPayload(draft, now() - opened.current, hpRef.current?.value ?? ""),
         ),
       });
       const data = (await res.json().catch(() => ({}))) as { ok?: boolean; notified?: boolean };
