@@ -22,7 +22,7 @@ export function WorksInstagramCta({ headingLevel = "h3" }: { headingLevel?: "h2"
           href={SITE.social.instagram}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn btn-primary h-14 justify-between gap-4 self-start pr-2.5 pl-6 md:self-end"
+          className="btn btn-primary h-14 justify-between gap-4 self-start pr-2.5 pl-6 tracking-normal whitespace-nowrap normal-case md:self-end"
         >
           {copy.works.emptyCta}
           <span className="round-icon h-9 w-9 bg-bg/90">

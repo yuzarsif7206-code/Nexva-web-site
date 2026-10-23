@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { ArrowUpRight, Phone, X } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
-import { InstagramIcon, WhatsAppIcon } from "@/components/ui/icons";
+import { InstagramIcon, WhatsAppIcon } from "@/components/ui/brand-icons";
 import { DEFAULT_WA_TEXT, NAV, SITE, waLink } from "@/lib/site-config";
 
 const LINKS = [...NAV, { href: "/teklif-al", label: "Teklif Al" }] as const;

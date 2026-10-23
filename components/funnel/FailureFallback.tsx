@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { Phone, RotateCcw } from "lucide-react";
-import { WhatsAppIcon } from "@/components/ui/icons";
+import { WhatsAppIcon } from "@/components/ui/brand-icons";
 import { copy } from "@/content/copy";
 import { SITE } from "@/lib/site-config";
 

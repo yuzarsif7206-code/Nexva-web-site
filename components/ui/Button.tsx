@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cnm as cn } from "@/lib/cn-merge";
 
 type Common = {
   children: React.ReactNode;

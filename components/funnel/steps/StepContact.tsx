@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
-import { WhatsAppIcon } from "@/components/ui/icons";
+import { WhatsAppIcon } from "@/components/ui/brand-icons";
 import { formatPhoneInput } from "@/lib/phone";
 import { cn } from "@/lib/utils";
 import { KANALLAR, type Kanal } from "@/lib/validation";

@@ -17,8 +17,9 @@ export function Hero() {
         <div
           className="absolute inset-0"
           style={{
+            // okunurluk: metin bloğunun arkasında koyu çekirdek + alt kenarda zemine karışma
             background:
-              "radial-gradient(60% 40% at 50% 50%, rgb(10 10 11 / .55), transparent), linear-gradient(to bottom, transparent 70%, var(--color-bg))",
+              "radial-gradient(80% 48% at 50% 58%, rgb(10 10 11 / .78), rgb(10 10 11 / .35) 62%, transparent 85%), linear-gradient(to bottom, rgb(10 10 11 / .25), transparent 30%, transparent 70%, var(--color-bg))",
           }}
         />
       </div>

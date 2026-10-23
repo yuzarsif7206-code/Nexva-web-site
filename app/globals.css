@@ -55,6 +55,11 @@ body {
   outline-offset: 3px;
   border-radius: 6px;
 }
+/* Programatik odak hedefleri (başlıklar, main) halka göstermez */
+[tabindex="-1"]:focus,
+[tabindex="-1"]:focus-visible {
+  outline: none;
+}
 input,
 select,
 textarea,
@@ -83,6 +88,8 @@ html.lenis {
   scroll-margin-top: 6rem;
 }
 
+/* Bileşen sınıfları components katmanında: Tailwind yardımcı sınıfları bunları ezebilir. */
+@layer components {
 /* ---------- Tipografi ---------- */
 .display {
   font-family: var(--font-display), "Arial Narrow", sans-serif;
@@ -724,6 +731,8 @@ html.lenis {
   border-radius: 9999px;
   flex-shrink: 0;
 }
+
+} /* @layer components sonu */
 
 @media (prefers-reduced-motion: reduce) {
   *,

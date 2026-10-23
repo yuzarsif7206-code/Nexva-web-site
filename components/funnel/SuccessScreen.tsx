@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { WhatsAppIcon } from "@/components/ui/icons";
+import { WhatsAppIcon } from "@/components/ui/brand-icons";
 import { copy } from "@/content/copy";
 
 // 18 küçük kırmızı kare: tek seferlik piksel çözülmesi (CSS, 1.2 s)

@@ -25,6 +25,7 @@ import { ProgressRing } from "./ProgressRing";
 import { StepAdBudget, StepBudget, StepStage, StepTiming } from "./steps";
 import { StepContact, type ContactErrors, type ContactField } from "./steps/StepContact";
 import { StepNeed } from "./steps/StepNeed";
+import { StepFocusContext } from "./StepShell";
 import { SuccessScreen } from "./SuccessScreen";
 
 const loadFeatures = () => import("./motion-features").then((mod) => mod.default);
@@ -65,6 +66,9 @@ function LeadFunnel({ src }: { src: string }) {
   const steps = computeSteps(draft);
   const index = Math.max(0, steps.indexOf(draft.step));
   const current: StepKey = steps[index];
+  // ilk görünen adımda odak taşınmaz (sayfa açılışında halka/kaydırma olmasın)
+  const [firstStep] = useState(current);
+  const focusStep = current !== firstStep;
 
   const go = (step: StepKey) => setDraft((d) => ({ ...d, step }));
   const advanceLater = useCallback(() => {
@@ -288,6 +292,7 @@ function LeadFunnel({ src }: { src: string }) {
               onContinue();
             }}
           >
+            <StepFocusContext value={focusStep}>
             <AnimatePresence mode="wait" initial={false}>
               <m.div
                 key={current}
@@ -339,6 +344,7 @@ function LeadFunnel({ src }: { src: string }) {
                 )}
               </m.div>
             </AnimatePresence>
+            </StepFocusContext>
             {/* Enter ile gönderim için görünmez submit */}
             <button type="submit" className="sr-only" tabIndex={-1} aria-hidden>
               Gönder

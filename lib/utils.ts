@@ -1,8 +1,8 @@
 import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
 
+/** Sınıf birleştirme (hafif, istemci paketine uygun). Çakışan Tailwind sınıfı vermeyin. */
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return clsx(inputs);
 }
 
 export const pad2 = (n: number) => String(n).padStart(2, "0");

@@ -45,17 +45,19 @@ export function Packages({ headingLevel = "h2" }: { headingLevel?: "h2" }) {
         <PackagesRail names={packages.map((p) => p.name)} featuredIndex={featuredIndex}>
           <ul className="pkg-list">
             {packages.map((p, i) => (
-              <li key={p.slug} data-pkg data-active={i === featuredIndex} className="pkg-item relative">
+              <li key={p.slug} data-pkg data-active={i === featuredIndex} className="pkg-item">
+                {/* öne çıkan kart masaüstünde ~%8 daha uzun: yukarı/aşağı taşar */}
+                <div className={cn("relative h-full", p.featured && "lg:-my-6 lg:h-[calc(100%+3rem)]")}>
                 {p.featured && (
                   <span
                     aria-hidden
-                    className="breathe pointer-events-none absolute inset-0 rounded-[1.25rem] shadow-[0_0_60px_-10px_rgb(229_49_27/0.55)] md:rounded-3xl lg:-inset-y-[4%]"
+                    className="breathe pointer-events-none absolute inset-0 rounded-[1.25rem] shadow-[0_0_60px_-10px_rgb(229_49_27/0.55)] md:rounded-3xl"
                   />
                 )}
                 <article
                   className={cn(
                     "card card-arc spot flex h-full flex-col p-6 md:p-8",
-                    p.featured ? "card-gradient border-accent/70 lg:-my-[4%] lg:py-12" : "",
+                    p.featured ? "card-gradient border-accent/70 lg:py-12" : "",
                   )}
                   aria-labelledby={`pkg-${p.slug}`}
                 >
@@ -89,7 +91,7 @@ export function Packages({ headingLevel = "h2" }: { headingLevel?: "h2" }) {
                     <Link
                       href={`/teklif-al?paket=${p.slug}`}
                       className={cn(
-                        "btn mt-3 h-12 w-full justify-between pr-2 pl-5 text-sm",
+                        "btn mt-3 h-12 w-full justify-between pr-2 pl-5 text-[0.8125rem] whitespace-nowrap",
                         p.featured ? "btn-primary" : "btn-secondary",
                       )}
                     >
@@ -100,6 +102,7 @@ export function Packages({ headingLevel = "h2" }: { headingLevel?: "h2" }) {
                     </Link>
                   </div>
                 </article>
+                </div>
               </li>
             ))}
           </ul>
