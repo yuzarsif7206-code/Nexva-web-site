@@ -63,7 +63,7 @@ Form, ortam değişkenleri girilmeden de açılır. Gönderim başarısız olurs
 - **Telefon, e-posta, adres, saatler, Instagram:** `lib/site-config.ts`
 - **Tüm metinler:** `content/copy.ts`, `content/services.ts`, `content/packages.ts`, `content/projects.ts`
 - **Fiyatlar (sitede görünmez, yalnızca size gelen e-postada):** `server/internal-pricing.ts`
-- **Hero'daki 3 kutu fotoğrafı:** 320×320 AVIF/WebP, kırmızı-siyah tek tona çevrilmiş, her biri ≤12 KB. Dosyaları `public/hero/` altına koyup `content/hero-tiles.ts` içinde `src: "/hero/cekim.avif"` gibi doldurun.
+- **Hero'daki 3 kutu:** Şu an marka paletinde vektör illüstrasyonlar (kamera lensi, dron, tasarım ekranı) var: `components/art/TileArt.tsx`. Gerçek fotoğrafa geçmek için 320×320 AVIF/WebP (kırmızı-siyah tek ton, ≤12 KB) dosyaları `public/hero/` altına koyup `content/hero-tiles.ts` içinde `src: "/hero/cekim.avif"` gibi doldurun; `src` varsa illüstrasyon yerine fotoğraf görünür.
 - **İşler (portföy):** Görselleri `public/works/<slug>/` altına koyun (AVIF/WebP, en geniş kenar 1600 px), `content/works.ts` içindeki `works` dizisine kayıt ekleyin:
 
 ```ts
@@ -79,7 +79,7 @@ Form, ortam değişkenleri girilmeden de açılır. Gönderim başarısız olurs
 }
 ```
 
-İş eklenene kadar ana sayfada ve `/isler`'de Instagram yönlendirmesi görünür (sahte iş gösterilmez).
+İş eklenene kadar `/isler`'de illüstrasyonlu "Neler üretiyoruz" vitrini ve Instagram yönlendirmesi, ana sayfada Instagram yönlendirmesi görünür (sahte iş gösterilmez). İlk gerçek iş eklendiğinde vitrin yerini otomatik olarak iş galerisine bırakır.
 
 ---
 

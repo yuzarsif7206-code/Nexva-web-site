@@ -1,5 +1,20 @@
 # Yayına Alma Rehberi (Vercel)
 
+## Mevcut durum (25 Ekim 2026)
+
+- Kod GitHub'da: https://github.com/yuzarsif7206-code/Nexva-web-site
+- Site yayında: https://nexva-dijital.vercel.app (Vercel projesi: `nexva/nexva-dijital`)
+- Vercel'e girilmiş değişkenler: `NEXT_PUBLIC_ALLOW_INDEXING`, `NEXT_PUBLIC_USE_PLACEHOLDER_WORKS`, `GMAIL_USER`, `LEAD_TO_EMAIL`, `IP_HASH_SALT`, `CRON_SECRET`.
+  `NEXT_PUBLIC_SITE_URL` verilmedi; site adresini Vercel'den otomatik alır.
+- **Eksik:** `GMAIL_APP_PASSWORD` (README 2.1) ve isteğe bağlı Supabase değişkenleri. Bunlar girilene kadar form, müşteriye WhatsApp/Ara yedeğini gösterir.
+- **Otomatik yayın kapalı:** Vercel hesabında GitHub bağlantısı yok. Açmak için: Vercel > sağ üst profil > **Account Settings > Authentication > GitHub > Connect**, sonra proje > **Settings > Git > Connect Git Repository** > `Nexva-web-site`. Bundan sonra her `git push` siteyi kendiliğinden günceller.
+
+Değişken ekledikten sonra: Vercel > proje > **Deployments** > en üstteki > **⋯ > Redeploy**.
+
+Aşağıdaki A–B adımları zaten yapıldı; yeni bir hesapta kurulum gerekirse başvuru için duruyor.
+
+---
+
 Toplam süre: yaklaşık 30–45 dakika. Kod tarafı hazır; aşağıdaki adımlar yalnızca sizin hesaplarınızla yapılabilecek işlerdir.
 
 ## A. Kodu GitHub'a yükleyin
