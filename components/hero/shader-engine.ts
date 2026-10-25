@@ -32,27 +32,68 @@ export function startShader(
     return () => {};
   }
 
-  const compile = (type: number, src: string) => {
-    const s = gl.createShader(type);
-    if (!s) return null;
-    gl.shaderSource(s, src);
-    gl.compileShader(s);
-    return gl.getShaderParameter(s, gl.COMPILE_STATUS) ? s : null;
+  // Kapı: yazılımsal WebGL (GPU yok) ana iş parçacığını kilitler, Seviye 0'da kal.
+  const dbg = gl.getExtension("WEBGL_debug_renderer_info");
+  const renderer = String(
+    dbg ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER),
+  );
+  if (/swiftshader|llvmpipe|software|microsoft basic render/i.test(renderer)) {
+    gl.getExtension("WEBGL_lose_context")?.loseContext();
+    onFail();
+    return () => {};
+  }
+
+  let cancelled = false;
+  let stop: () => void = () => {
+    cancelled = true;
   };
-  const vs = compile(gl.VERTEX_SHADER, VERT);
-  const fs = compile(gl.FRAGMENT_SHADER, FRAG);
+
+  const vs = gl.createShader(gl.VERTEX_SHADER);
+  const fs = gl.createShader(gl.FRAGMENT_SHADER);
   const prog = gl.createProgram();
   if (!vs || !fs || !prog) {
     onFail();
     return () => {};
   }
+  gl.shaderSource(vs, VERT);
+  gl.shaderSource(fs, FRAG);
+  gl.compileShader(vs);
+  gl.compileShader(fs);
   gl.attachShader(prog, vs);
   gl.attachShader(prog, fs);
   gl.linkProgram(prog);
-  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
-    onFail();
-    return () => {};
+
+  // Paralel derleme: destekleniyorsa sonucu bloklamadan bekle (ana iş parçacığı serbest kalır).
+  const parallel = gl.getExtension("KHR_parallel_shader_compile") as { COMPLETION_STATUS_KHR: number } | null;
+  const finish = () => {
+    if (cancelled) return;
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+      onFail();
+      return;
+    }
+    stop = run(gl, prog, canvas, mode, onFirstFrame, onFail);
+  };
+  if (parallel) {
+    const poll = () => {
+      if (cancelled) return;
+      if (gl.getProgramParameter(prog, parallel.COMPLETION_STATUS_KHR)) finish();
+      else setTimeout(poll, 50);
+    };
+    poll();
+  } else {
+    finish();
   }
+  return () => stop();
+}
+
+function run(
+  gl: WebGL2RenderingContext,
+  prog: WebGLProgram,
+  canvas: HTMLCanvasElement,
+  mode: "still" | "live",
+  onFirstFrame: () => void,
+  onFail: () => void,
+): () => void {
   gl.useProgram(prog);
 
   const uRes = gl.getUniformLocation(prog, "uRes");
