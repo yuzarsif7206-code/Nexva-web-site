@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { LogoMark } from "@/components/brand/LogoMark";
+import { TileArt } from "@/components/art/TileArt";
 import { heroTiles } from "@/content/hero-tiles";
 import { TileCut } from "./TileCut";
 
@@ -9,7 +9,7 @@ export function HeroTiles() {
       {heroTiles.map((tile, i) => (
         <li
           key={tile.alt}
-          className="hero-in relative aspect-square w-[clamp(96px,30vw,127px)] overflow-hidden rounded-xl border border-white/10 shadow-[0_18px_40px_-18px_rgb(92_10_21/0.9)] lg:w-[170px] lg:rounded-2xl"
+          className="hero-in relative aspect-square w-[clamp(96px,30vw,127px)] overflow-hidden rounded-xl border border-white/10 bg-bg shadow-[0_18px_40px_-18px_rgb(92_10_21/0.9)] lg:w-[170px] lg:rounded-2xl"
           style={{ ["--i" as string]: i }}
         >
           {tile.src ? (
@@ -23,17 +23,12 @@ export function HeroTiles() {
               className="h-full w-full object-cover"
             />
           ) : (
-            <div
-              role="img"
-              aria-label={tile.alt}
-              className="grid h-full w-full place-items-center"
-              style={{ background: "linear-gradient(160deg,#5C0A15,#0A0A0B)" }}
-            >
-              <LogoMark decorative className="h-1/2 w-1/2 opacity-25" />
+            <div role="img" aria-label={tile.alt} className="absolute inset-0">
+              <TileArt name={tile.art} id={`hero-art-${i}`} />
             </div>
           )}
           <TileCut i={i as 0 | 1 | 2} />
-          <span className="absolute top-2 left-2 rounded-full bg-bg/70 px-2 py-0.5 text-[10px] font-semibold tracking-[0.14em] text-fg/80 uppercase lg:top-3 lg:left-3">
+          <span className="absolute bottom-2 left-2 rounded-full bg-bg/80 px-2 py-0.5 text-[10px] font-semibold tracking-[0.14em] text-fg/85 uppercase lg:bottom-3 lg:left-3">
             0{i + 1}
           </span>
         </li>
