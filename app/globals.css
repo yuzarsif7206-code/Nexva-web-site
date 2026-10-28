@@ -106,6 +106,26 @@ html.lenis {
 .h1-hero {
   font-size: clamp(2.25rem, 11vw, 4rem);
 }
+/* Fütüristik vitrin başlığı (Unbounded) */
+.future {
+  font-family: var(--font-future), var(--font-display), sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+.h1-future {
+  font-size: clamp(1.625rem, 7.6vw, 2.4rem);
+}
+@media (min-width: 768px) {
+  .h1-future {
+    font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+  }
+}
+/* Hakkımızda bölümü başlıkları bir kademe küçük */
+.h2-compact {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
 .h2-section {
   font-size: clamp(2.25rem, 9vw, 3.25rem);
 }
@@ -254,6 +274,21 @@ html.lenis {
   /* 5 adım × 80 ms + 480 ms = toplam < 900 ms */
   animation: rise 0.48s var(--ease-spring) both;
   animation-delay: calc(var(--i, 0) * 80ms);
+}
+/* Hero sol etiketleri: soldan, birbiri ardına gelir */
+.side-in {
+  animation: side-in 0.6s var(--ease-spring) both;
+  animation-delay: calc(500ms + var(--i, 0) * 120ms);
+}
+@keyframes side-in {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 /* LCP öğesi (H1): opacity hiç 0 olmaz, yalnızca yükselir. Böylece ilk boyamada LCP adayı olur. */
 .hero-in-lcp {

@@ -16,8 +16,11 @@ export function SectionHeading({
   sub,
   align = "left",
   as: Tag = "h2",
+  compact,
   className,
 }: {
+  /** Bir kademe küçük başlık (Hakkımızda bölümü) */
+  compact?: boolean;
   id?: string;
   eyebrow?: string;
   title: React.ReactNode;
@@ -35,7 +38,10 @@ export function SectionHeading({
       )}
     >
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-      <Tag id={id} className={cn("display text-balance", Tag === "h1" ? "h1-hero" : "h2-section")}>
+      <Tag
+        id={id}
+        className={cn("display text-balance", Tag === "h1" ? "h1-hero" : compact ? "h2-compact" : "h2-section")}
+      >
         {title}
       </Tag>
       {sub && (

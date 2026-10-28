@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Barlow_Condensed, Inter } from "next/font/google";
+import { Barlow_Condensed, Inter, Unbounded } from "next/font/google";
 import { Enhancements } from "@/components/motion/Enhancements";
 import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "@/lib/seo";
 import { SITE } from "@/lib/site-config";
@@ -10,6 +10,14 @@ const barlow = Barlow_Condensed({
   variable: "--font-barlow",
   weight: ["800"],
   style: ["italic"],
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+});
+
+// Fütüristik vitrin fontu: yalnızca hero başlığı ve iletişim bandı başlığı (Türkçe karakterler için latin-ext).
+const unbounded = Unbounded({
+  variable: "--font-future",
+  weight: ["700"],
   subsets: ["latin", "latin-ext"],
   display: "swap",
 });
@@ -55,7 +63,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="tr" className={`${barlow.variable} ${inter.variable}`}>
+    <html lang="tr" className={`${barlow.variable} ${inter.variable} ${unbounded.variable}`}>
       <body className="grain">
         <a href="#icerik" className="skip-link">
           İçeriğe geç

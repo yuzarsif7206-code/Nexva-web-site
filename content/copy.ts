@@ -1,15 +1,14 @@
 export const copy = {
   hero: {
-    h1: ["MARKANI DİJİTALDE", "BÜYÜT"], // 2. satır ve nokta accent renginde
-    sub: "Reklam filmi, dron çekimi, sosyal medya yönetimi ve performans reklamlarıyla markanızı bölgenizde herkesin konuştuğu marka yapıyoruz.",
+    h1: ["MARKANIZI DİJİTALDE", "BÜYÜTÜN"], // 2. satır ve nokta accent renginde
     ctaPrimary: "Teklif Al",
     ctaSecondary: "Hizmetleri gör",
-    trust: ["24 saat içinde dönüş", "Net kapsam", "Tek çatı"],
-    sideLabels: ["Prodüksiyon", "Reklam", "Marka"], // yalnızca ≥1024 px, solda dikey
+    // geniş ekranda solda alt alta, sırayla belirir
+    sideLabels: ["Reklam çekimi", "Prodüksiyon", "Meta reklam yönetimi", "Web site tasarımı", "Baskı / Promosyon"],
   },
   about: {
-    eyebrow: "NEXVA DİJİTAL · BATMAN",
-    text: "Nexva Dijital, Batman merkezli bir reklam, prodüksiyon ve dijital medya ajansıdır. Çekimden reklama, tasarımdan web sitesine markanızın dijitalde görünür olması için gereken her şeyi tek çatı altında üretiyoruz.",
+    labels: ["NEXVA DİJİTAL", "ÇEKİM & DRON", "REKLAM & SOSYAL MEDYA", "TASARIM & WEB"],
+    text: "Nexva Dijital, Batman merkezli bir reklam, prodüksiyon ve dijital medya ajansıdır. Markaların dijitalde görünür olması için gereken her şeyi (çekim, tasarım, Meta reklam yönetimi ve web sitesi tasarımı) tek çatı altında üretiyoruz. Amacımız, yerel işletmeleri bulundukları bölgenin en çok konuşulan markası haline getirmek.",
   },
   ticker: [
     "REKLAM FİLMİ",
@@ -53,31 +52,9 @@ export const copy = {
       "Son çekimlerimizi, reklam çalışmalarımızı ve tasarımlarımızı Instagram hesabımızdan inceleyebilirsiniz.",
     emptyCta: "@nexvadigital'e göz at",
   },
-  why: {
-    eyebrow: "NEDEN NEXVA",
-    title: "SÜRPRİZSİZ, NET, HIZLI",
-    items: [
-      {
-        title: "Tek çatı, tek ekip",
-        text: "Çekimden reklama, tasarımdan web sitesine her şey aynı ekipte. Farklı ajanslar arasında mesaj taşımak zorunda kalmazsınız.",
-      },
-      {
-        title: "Yerel pazarı biliyoruz",
-        text: "Batman ve çevresindeki markaların müşterisini, dilini ve alışkanlıklarını tanıyoruz.",
-      },
-      {
-        title: "24 saat içinde dönüş",
-        text: "Talebiniz bize ulaştığında 24 saat içinde size dönüş yapıyoruz.",
-      },
-      {
-        title: "Net kapsam, net süreç",
-        text: "Ne yapılacağı baştan yazılıdır. Sürprizsiz ilerleriz.",
-      },
-    ],
-  },
   process: {
     eyebrow: "SÜREÇ",
-    title: "FİKİRDEN SONUCA BEŞ ADIM",
+    title: "ÇALIŞMA SÜRECİ",
     steps: [
       { title: "Keşif", text: "Markanızı, hedefinizi ve ihtiyacınızı dinliyoruz." },
       { title: "Plan", text: "Size özel içerik ve yayın planını çıkarıyoruz." },
@@ -90,9 +67,7 @@ export const copy = {
     ],
   },
   cta: {
-    eyebrow: "HADİ KONUŞALIM",
     title: "MARKANI BİRLİKTE BÜYÜTELİM",
-    sub: "60 saniyelik formu doldurun, 24 saat içinde size dönüş yapalım.",
     primary: "Teklif Al",
     secondary: "WhatsApp'tan Yaz",
   },
@@ -104,23 +79,6 @@ export const copy = {
     services: {
       title: "NE YAPIYORUZ",
       sub: "Üretimden reklama, tasarımdan web'e: markanızın dijitalde ihtiyaç duyduğu her şey.",
-    },
-    works: {
-      title: "İŞLERİMİZ",
-      sub: "Ürettiğimiz çekimler, kampanyalar ve tasarımlar.",
-    },
-    about: {
-      title: "BİZ NEXVA",
-      story:
-        "Nexva Dijital, Batman merkezli bir reklam, prodüksiyon ve dijital medya ajansıdır. Markaların dijitalde görünür olması için gereken her şeyi (çekim, tasarım, reklam ve web) tek çatı altında üretiyoruz. Amacımız, yerel markaları bulundukları bölgenin en çok konuşulan markası, kurumsal markaları ise dijitalde en güçlü versiyonu yapmak.",
-      principlesEyebrow: "NASIL ÇALIŞIRIZ",
-      principlesTitle: "DÖRT İLKE",
-      principles: [
-        { title: "Net konuşuruz", text: "Kapsam ve süreç baştan yazılıdır." },
-        { title: "Hızlı döneriz", text: "Talebinize 24 saat içinde yanıt veririz." },
-        { title: "Ölçeriz", text: "Reklam ve içerik sonuçlarını raporlarız." },
-        { title: "Sürekli üretiriz", text: "Tek seferlik değil, düzenli içerik anlayışıyla çalışırız." },
-      ],
     },
   },
   funnelSuccess: {

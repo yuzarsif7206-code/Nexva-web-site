@@ -24,18 +24,18 @@ export function Hero() {
         />
       </div>
 
-      {/* Sol dikey etiketler (≥1024 px) */}
+      {/* Solda alt alta hizmet etiketleri (geniş ekran): sırayla belirir */}
       <ul
-        aria-hidden
-        className="absolute top-1/2 left-12 hidden -translate-y-1/2 flex-col gap-5 text-[11px] tracking-[0.2em] text-muted uppercase lg:flex"
+        aria-label="Hizmet alanları"
+        className="absolute top-1/2 left-10 hidden -translate-y-1/2 flex-col gap-4 text-[11px] font-semibold tracking-[0.2em] text-fg/70 uppercase xl:flex 2xl:left-14"
       >
         {hero.sideLabels.map((l, i) => (
-          <li key={l} className="hero-in flex items-center gap-3" style={{ ["--i" as string]: i + 3 }}>
-            <span className="h-1.5 w-1.5 bg-brand" />
+          <li key={l} className="side-in flex items-center gap-3" style={{ ["--i" as string]: i }}>
+            <span aria-hidden className="h-1.5 w-1.5 bg-accent" />
             {l}
           </li>
         ))}
-        <li className="ml-[3px] h-16 w-px bg-gradient-to-b from-white/25 to-transparent" />
+        <li aria-hidden className="side-in ml-[2px] h-16 w-px bg-gradient-to-b from-white/30 to-transparent" style={{ ["--i" as string]: hero.sideLabels.length }} />
       </ul>
 
       <div className="container-x flex flex-col items-center text-center">
@@ -43,23 +43,14 @@ export function Hero() {
 
         <h1
           id="hero-title"
-          className="display h1-hero hero-in-lcp mt-8 text-balance lg:mt-10"
+          className="future h1-future hero-in-lcp mt-9 text-balance lg:mt-12"
           style={{ ["--i" as string]: 3 }}
         >
-          <span className="block lg:inline">{hero.h1[0]}</span>{" "}
-          <span className="block text-accent lg:inline">
-            {hero.h1[1]}.
-          </span>
+          <span className="block">{hero.h1[0]}</span>
+          <span className="block text-accent">{hero.h1[1]}.</span>
         </h1>
 
-        <p
-          className="hero-in mt-5 max-w-[34rem] text-pretty text-[1.0625rem] leading-[1.55] text-fg/85 lg:mt-6 lg:text-xl"
-          style={{ ["--i" as string]: 4 }}
-        >
-          {hero.sub}
-        </p>
-
-        <div className="hero-in mt-8 flex flex-col items-center gap-5" style={{ ["--i" as string]: 5 }}>
+        <div className="hero-in mt-9 flex flex-col items-center gap-4 lg:mt-10" style={{ ["--i" as string]: 4 }}>
           <PillCta href="/teklif-al">{hero.ctaPrimary}</PillCta>
           <a
             href="#hizmetler"
@@ -71,14 +62,6 @@ export function Hero() {
               className="h-4 w-4 transition-transform duration-300 ease-(--ease-spring) group-hover:translate-y-0.5"
             />
           </a>
-          <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm text-muted">
-            {hero.trust.map((t, i) => (
-              <span key={t} className="inline-flex items-center gap-3">
-                {i > 0 && <span aria-hidden className="h-1 w-1 rounded-full bg-brand" />}
-                {t}
-              </span>
-            ))}
-          </p>
         </div>
       </div>
     </section>

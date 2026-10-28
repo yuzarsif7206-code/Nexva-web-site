@@ -6,7 +6,6 @@ import { OneTimeProjects } from "@/components/sections/OneTimeProjects";
 import { Packages } from "@/components/sections/Packages";
 import { Process } from "@/components/sections/Process";
 import { ServiceCards } from "@/components/sections/ServiceCards";
-import { WhyNexva } from "@/components/sections/WhyNexva";
 import { WorksPreview } from "@/components/sections/WorksPreview";
 import { SITE } from "@/lib/site-config";
 
@@ -20,21 +19,22 @@ export default function HomePage() {
           name: SITE.name,
           url: SITE.url,
           image: `${SITE.url}/opengraph-image`,
-          logo: `${SITE.url}/icon.svg`,
+          logo: `${SITE.url}/brand/nexva-logo-512.png`,
           telephone: SITE.phone.tel,
           email: SITE.email,
           address: {
             "@type": "PostalAddress",
-            streetAddress: SITE.address.line,
+            streetAddress: SITE.address.street,
             addressLocality: SITE.address.city,
+            addressRegion: SITE.address.city,
             addressCountry: SITE.address.country,
           },
           openingHoursSpecification: [
             {
               "@type": "OpeningHoursSpecification",
-              dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
               opens: "09:00",
-              closes: "18:00",
+              closes: "22:00",
             },
           ],
           sameAs: [SITE.social.instagram],
@@ -42,13 +42,13 @@ export default function HomePage() {
         }}
       />
       <Hero />
-      <AboutReveal />
+      {/* Sıra: Hizmetler → Hakkımızda → İşlerimiz → İletişim */}
       <ServiceCards />
       <Packages />
       <OneTimeProjects />
-      <WorksPreview />
-      <WhyNexva />
+      <AboutReveal />
       <Process />
+      <WorksPreview />
       <CtaBand />
     </>
   );

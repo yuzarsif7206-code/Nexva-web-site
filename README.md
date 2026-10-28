@@ -26,7 +26,11 @@ npm run lint     # kod denetimi
 
 ## 2. İletişim formunun çalışması için gerekenler
 
-Form, ortam değişkenleri girilmeden de açılır. Gönderim başarısız olursa müşteri hazır mesajlı WhatsApp ve "Bizi Ara" butonlarını görür, yani talep kaybolmaz. Talebin size e-postayla gelmesi için en az **Gmail Uygulama Şifresi** gereklidir.
+**Şu anki mod: WhatsApp.** Teklif formu soruları sorar, son adımda cevaplar hazır mesaja dönüşür ve müşteri alttaki **WhatsApp'tan Gönder** ya da **Bizi Ara** butonunu kullanır. Bu modda sunucuya hiçbir şey gönderilmez, ek ayar gerekmez.
+
+**E-posta moduna geçmek için:** aşağıdaki Gmail Uygulama Şifresini girin ve Vercel'e `NEXT_PUBLIC_FORM_MODE=email` ekleyip yeniden yayınlayın. O zaman form `/api/lead` uç noktasına gönderilir.
+
+E-posta modunda form, ortam değişkenleri girilmeden de açılır. Gönderim başarısız olursa müşteri hazır mesajlı WhatsApp ve "Bizi Ara" butonlarını görür, yani talep kaybolmaz. Talebin size e-postayla gelmesi için en az **Gmail Uygulama Şifresi** gereklidir.
 
 | Değişken | Zorunlu mu | Ne işe yarar |
 |---|---|---|
@@ -63,7 +67,8 @@ Form, ortam değişkenleri girilmeden de açılır. Gönderim başarısız olurs
 - **Telefon, e-posta, adres, saatler, Instagram:** `lib/site-config.ts`
 - **Tüm metinler:** `content/copy.ts`, `content/services.ts`, `content/packages.ts`, `content/projects.ts`
 - **Fiyatlar (sitede görünmez, yalnızca size gelen e-postada):** `server/internal-pricing.ts`
-- **Hero'daki 3 kutu:** Şu an marka paletinde vektör illüstrasyonlar (kamera lensi, dron, tasarım ekranı) var: `components/art/TileArt.tsx`. Gerçek fotoğrafa geçmek için 320×320 AVIF/WebP (kırmızı-siyah tek ton, ≤12 KB) dosyaları `public/hero/` altına koyup `content/hero-tiles.ts` içinde `src: "/hero/cekim.avif"` gibi doldurun; `src` varsa illüstrasyon yerine fotoğraf görünür.
+- **Logo:** `public/brand/` (resmi logonun yalnızca boyutlandırılmış kopyaları), sekme ikonları `app/icon.png` ve `app/apple-icon.png`.
+- **Hero'daki 3 kutu:** kamera lensi illüstrasyonu, laptop fotoğrafı (`public/hero/laptop.webp`, marka paletine tonlandı) ve tasarım ekranı illüstrasyonu. İllüstrasyonlar: `components/art/TileArt.tsx`. Gerçek fotoğrafa geçmek için 320×320 AVIF/WebP (kırmızı-siyah tek ton, ≤12 KB) dosyaları `public/hero/` altına koyup `content/hero-tiles.ts` içinde `src: "/hero/cekim.avif"` gibi doldurun; `src` varsa illüstrasyon yerine fotoğraf görünür.
 - **İşler (portföy):** Görselleri `public/works/<slug>/` altına koyun (AVIF/WebP, en geniş kenar 1600 px), `content/works.ts` içindeki `works` dizisine kayıt ekleyin:
 
 ```ts

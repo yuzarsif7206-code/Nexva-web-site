@@ -1,6 +1,6 @@
 import { PageIntro } from "@/components/sections/PageIntro";
 import { pageMetadata } from "@/lib/seo";
-import { SITE } from "@/lib/site-config";
+import { SITE, fullAddress } from "@/lib/site-config";
 
 export const metadata = pageMetadata({
   title: "KVKK Aydınlatma Metni",
@@ -28,7 +28,7 @@ export default function KvkkPage() {
               sorumlusu sıfatıyla <strong>Nexva Dijital</strong> tarafından aşağıda açıklanan kapsamda işlenmektedir.
             </p>
             <ul>
-              <li>Adres: {SITE.address.line}</li>
+              <li>Adres: {fullAddress}</li>
               <li>
                 Telefon: <a className="underline underline-offset-4 hover:text-accent" href={`tel:${SITE.phone.tel}`}>{SITE.phone.display}</a>
               </li>

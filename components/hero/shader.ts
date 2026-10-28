@@ -23,8 +23,8 @@ float hgt(vec2 p, float t){
   p += (w - .5) * 1.8;
   float u = (p.x * .82 + p.y * .57) * .55
           + sin(p.y * .9 + t * .12) * .35 + t * .03;
-  float x = fract(u) * 2. - 1.;
-  return sqrt(max(1. - x * x, 0.)) * .9;
+  // Kesintisiz serit profili: serit sinirinda ani kopma yok (siyah kirik cizgi artefakti olusmaz)
+  return (.5 + .5 * cos(u * 6.2831853)) * .9;
 }
 
 void main(){
@@ -46,7 +46,7 @@ void main(){
 
   vec3 base = mix(burg, brand, smoothstep(.05, .85, d1 * .8 + d2 * .5));
   vec3 col = base * (.40 + .9 * d1 + .5 * d2) + acc * (fres * .55 + sheen * .35) + hi * (s1 * 2.2 + s2 * .9);
-  col *= .30 + .70 * h0;
+  col *= .62 + .38 * h0;                // serit aralari siyah degil koyu bordo (cizgi gorunmez)
   float edge = smoothstep(.28, 1., length((uv - .5) * vec2(1., .85) * 2.));
   col = mix(bg, col, edge);
   col += (h21(gl_FragCoord.xy) - .5) / 255.;

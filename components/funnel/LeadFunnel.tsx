@@ -3,18 +3,22 @@
 import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, LazyMotion, MotionConfig, m } from "framer-motion";
-import { ArrowLeft, ArrowRight, LoaderCircle, Send } from "lucide-react";
+import { ArrowLeft, ArrowRight, LoaderCircle, Phone, Send } from "lucide-react";
 import { useSessionDraft } from "@/hooks/useSessionDraft";
 import { labels } from "@/lib/labels";
 import { contactSchema, type Hizmet } from "@/lib/validation";
 import { buildLeadMessage, waHref } from "@/lib/whatsapp";
+import { WhatsAppIcon } from "@/components/ui/brand-icons";
+import { FORM_MODE, SITE } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 import { FailureFallback } from "./FailureFallback";
+import { StepWhatsApp } from "./steps/StepWhatsApp";
 import {
   buildPayload,
   computeSteps,
   draftFromParams,
   emptyDraft,
+  needsAdBudget,
   nextStep,
   prevStep,
   selectionLabel,
@@ -117,13 +121,25 @@ function LeadFunnel({ src }: { src: string }) {
   };
 
   // ---------- Gönderim ----------
+  const adNeeded = needsAdBudget(draft);
+  const summary = [
+    { label: "İstenen", value: selectionLabel(draft) },
+    draft.asama && { label: "Aşama", value: labels.asama[draft.asama] },
+    draft.tur === "ozel" && draft.butce && { label: "Hizmet bütçesi", value: labels.butce[draft.butce] },
+    adNeeded && draft.reklamButcesi && { label: "Aylık reklam harcaması", value: labels.reklamButcesi[draft.reklamButcesi] },
+    draft.zamanlama && { label: "Zamanlama", value: labels.zamanlama[draft.zamanlama] },
+  ].filter(Boolean) as { label: string; value: string }[];
+
   const whatsappText = () =>
     buildLeadMessage({
       secim: selectionLabel(draft),
       asama: draft.asama && labels.asama[draft.asama],
+      butce: draft.tur === "ozel" && draft.butce ? labels.butce[draft.butce] : undefined,
+      reklamButcesi: adNeeded && draft.reklamButcesi ? labels.reklamButcesi[draft.reklamButcesi] : undefined,
       zamanlama: draft.zamanlama && labels.zamanlama[draft.zamanlama],
-      ad: draft.ad || undefined,
-      firma: draft.firma || undefined,
+      ad: draft.ad.trim() || undefined,
+      firma: draft.firma.trim() || undefined,
+      not: draft.not.trim() || undefined,
     });
 
   const submit = async () => {
@@ -179,7 +195,8 @@ function LeadFunnel({ src }: { src: string }) {
   const onContinue = () => {
     window.clearTimeout(timer.current);
     if (current === "contact") {
-      void submit();
+      // WhatsApp modunda sunucuya gönderim yok; gönderim WhatsApp butonuyla yapılır
+      if (FORM_MODE === "email") void submit();
       return;
     }
     if (current === "need" && draft.tur === "ozel" && draft.hizmetler.length === 0) {
@@ -215,7 +232,9 @@ function LeadFunnel({ src }: { src: string }) {
     );
   }
 
-  const showContinue = stepHasValue(current);
+  // WhatsApp modunda son adımın kendi butonları var; alt çubukta yalnızca "Geri" kalır
+  const waFinal = current === "contact" && FORM_MODE === "whatsapp";
+  const showContinue = stepHasValue(current) && !waFinal;
   const chip = draft.skipNeed ? selectionLabel(draft) : "";
 
   return (
@@ -245,12 +264,38 @@ function LeadFunnel({ src }: { src: string }) {
             </div>
           }
           bottom={
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               {index > 0 && (
-                <button type="button" onClick={back} className="btn btn-secondary h-12 px-5">
+                <button
+                  type="button"
+                  onClick={back}
+                  aria-label="Geri"
+                  className={cn("btn btn-secondary h-12", waFinal ? "w-12 shrink-0 px-0 sm:w-auto sm:px-5" : "px-5")}
+                >
                   <ArrowLeft className="h-4 w-4" aria-hidden />
-                  Geri
+                  <span className={waFinal ? "hidden sm:inline" : ""}>Geri</span>
                 </button>
+              )}
+              {waFinal && (
+                <>
+                  <a
+                    href={waHref(whatsappText())}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn ml-auto h-12 flex-1 gap-2 bg-[#1f9d55] px-3 text-sm tracking-normal text-white normal-case sm:flex-none sm:px-6 sm:text-base"
+                  >
+                    <WhatsAppIcon className="h-5 w-5 shrink-0" />
+                    <span className="whitespace-nowrap min-[440px]:hidden">WhatsApp</span>
+                    <span className="hidden whitespace-nowrap min-[440px]:inline">WhatsApp&apos;tan Gönder</span>
+                  </a>
+                  <a
+                    href={`tel:${SITE.phone.tel}`}
+                    className="btn btn-secondary h-12 shrink-0 gap-2 px-4 text-sm tracking-normal normal-case sm:px-6 sm:text-base"
+                  >
+                    <Phone className="h-4 w-4" aria-hidden />
+                    <span className="whitespace-nowrap">Bizi Ara</span>
+                  </a>
+                </>
               )}
               {showContinue && (
                 <button
@@ -333,7 +378,14 @@ function LeadFunnel({ src }: { src: string }) {
                 {current === "timing" && (
                   <StepTiming value={draft.zamanlama} onPick={(v) => pick("zamanlama", v)} />
                 )}
-                {current === "contact" && (
+                {current === "contact" && FORM_MODE === "whatsapp" && (
+                  <StepWhatsApp
+                    draft={draft}
+                    summary={summary}
+                    onChange={(k, v) => setDraft((d) => ({ ...d, [k]: v }))}
+                  />
+                )}
+                {current === "contact" && FORM_MODE === "email" && (
                   <StepContact
                     draft={draft}
                     errors={errors}

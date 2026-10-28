@@ -3,7 +3,7 @@ import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
 import { InstagramIcon, WhatsAppIcon } from "@/components/ui/icons";
 import { copy } from "@/content/copy";
-import { DEFAULT_WA_TEXT, NAV, SITE, waLink } from "@/lib/site-config";
+import { DEFAULT_WA_TEXT, NAV, SITE, mapsLink, waLink } from "@/lib/site-config";
 import { CurrentYear } from "./CurrentYear";
 
 const PAGES = [{ href: "/", label: "Ana Sayfa" }, ...NAV, { href: "/teklif-al", label: "Teklif Al" }];
@@ -34,8 +34,8 @@ export function Footer() {
       <div className="container-x grid gap-12 pt-16 pb-10 md:grid-cols-2 md:pt-20 lg:grid-cols-[1.4fr_1fr_1.2fr_1fr] lg:gap-10">
         <div className="flex flex-col gap-5">
           <Logo className="self-start" />
-          <p className="display text-2xl text-fg">
-            MARKANI DİJİTALDE <span className="text-accent">BÜYÜT.</span>
+          <p className="future text-lg text-fg">
+            MARKANIZI DİJİTALDE <span className="text-accent">BÜYÜTÜN.</span>
           </p>
           <p className="max-w-xs text-sm text-muted">{copy.footer.blurb}</p>
         </div>
@@ -77,9 +77,22 @@ export function Footer() {
                 {SITE.email}
               </a>
             </li>
-            <li className="inline-flex min-h-11 items-center gap-3 text-fg/85">
-              <MapPin className="h-4 w-4 text-accent" aria-hidden />
-              {SITE.address.line}
+            <li>
+              <a
+                href={mapsLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-start gap-3 py-2 text-fg/85 transition-colors hover:text-accent"
+              >
+                <MapPin className="mt-1 h-4 w-4 shrink-0 text-accent" aria-hidden />
+                <address className="not-italic leading-relaxed">
+                  {SITE.address.lines.map((l) => (
+                    <span key={l} className="block">
+                      {l}
+                    </span>
+                  ))}
+                </address>
+              </a>
             </li>
           </ul>
           <div className="mt-4 flex gap-3">

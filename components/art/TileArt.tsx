@@ -4,7 +4,10 @@
  * kırpılmış (slice) kaplarda kullanılır. Hareket yalnızca transform/opacity (CSS).
  */
 
-export type ArtName = "camera" | "drone" | "screen" | "dashboard" | "brand" | "social";
+export type ArtName = "camera" | "drone" | "screen" | "social";
+
+/** SVG koordinatlarını 2 ondalığa yuvarlar (HTML'i şişirmesin). */
+const r2d = (n: number) => Math.round(n * 100) / 100;
 
 const FONT = { fontFamily: "var(--font-inter), system-ui, sans-serif" } as const;
 const DISPLAY = { fontFamily: "var(--font-barlow), 'Arial Narrow', sans-serif", fontStyle: "italic" } as const;
@@ -75,10 +78,10 @@ function Camera({ id }: { id: string }) {
           return (
             <line
               key={i}
-              x1={160 + r1 * Math.cos(a)}
-              y1={150 + r1 * Math.sin(a)}
-              x2={160 + r2 * Math.cos(a)}
-              y2={150 + r2 * Math.sin(a)}
+              x1={r2d(160 + r1 * Math.cos(a))}
+              y1={r2d(150 + r1 * Math.sin(a))}
+              x2={r2d(160 + r2 * Math.cos(a))}
+              y2={r2d(150 + r2 * Math.sin(a))}
             />
           );
         })}
@@ -258,101 +261,6 @@ function Screen({ id }: { id: string }) {
   );
 }
 
-/* ---------------- Performans paneli ---------------- */
-function Dashboard({ id }: { id: string }) {
-  const bars = [46, 62, 54, 80, 72, 104, 128];
-  return (
-    <>
-      <Backdrop id={id} glowX={60} glowY={280} />
-      <defs>
-        <linearGradient id={`${id}-bar`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#E5311B" />
-          <stop offset="1" stopColor="#5C0A15" />
-        </linearGradient>
-      </defs>
-      {/* hedef */}
-      <g transform="translate(232 98)">
-        <circle r="58" fill="#0E0E10" stroke="#2C2C31" strokeWidth="2" />
-        <circle r="44" fill="none" stroke="#B3162B" strokeWidth="8" strokeOpacity=".6" />
-        <circle r="26" fill="none" stroke="#E5311B" strokeWidth="8" />
-        <circle r="9" fill="#FFE8E2" />
-        <g className="art-pulse-slow">
-          <circle r="66" fill="none" stroke="#E5311B" strokeOpacity=".35" strokeWidth="2" strokeDasharray="4 8" />
-        </g>
-      </g>
-      {/* ok */}
-      <path d="M140 40 L 222 92" stroke="#F5F5F2" strokeWidth="4" strokeLinecap="round" />
-      <path d="M214 80 L 228 96 L 207 98Z" fill="#F5F5F2" />
-      <path d="M132 34 l-12 -2 4 10 M138 46 l-12 2 6 8" stroke="#E5311B" strokeWidth="3" strokeLinecap="round" fill="none" />
-      {/* çubuk grafik */}
-      <rect x="24" y="150" width="272" height="146" rx="14" fill="#121214" stroke="#2C2C31" />
-      <g>
-        {bars.map((h, i) => (
-          <rect key={i} x={44 + i * 36} y={280 - h} width="22" height={h} rx="5" fill={i === bars.length - 1 ? `url(#${id}-bar)` : "#2A2A30"} />
-        ))}
-      </g>
-      <path d="M55 238 L 91 222 L 127 228 L 163 198 L 199 206 L 235 174 L 271 150" fill="none" stroke="#FFE8E2" strokeWidth="2.5" strokeDasharray="5 5" />
-      <g style={FONT} fontWeight="700">
-        <rect x="32" y="22" width="78" height="28" rx="14" fill="#B3162B" />
-        <text x="71" y="41" textAnchor="middle" fill="#fff" fontSize="13" letterSpacing="1">
-          META
-        </text>
-        <rect x="32" y="58" width="86" height="28" rx="14" fill="none" stroke="#F5F5F2" strokeOpacity=".4" />
-        <text x="75" y="77" textAnchor="middle" fill="#F5F5F2" fontSize="13" letterSpacing="1">
-          GOOGLE
-        </text>
-      </g>
-    </>
-  );
-}
-
-/* ---------------- Marka kimliği: logo kurgu ızgarası ---------------- */
-function Brand({ id }: { id: string }) {
-  return (
-    <>
-      <Backdrop id={id} glowX={160} glowY={150} />
-      {/* kurgu daireleri */}
-      <g fill="none" stroke="#F5F5F2" strokeOpacity=".16" strokeWidth="1.2">
-        <circle cx="160" cy="150" r="100" />
-        <circle cx="110" cy="150" r="50" />
-        <circle cx="210" cy="150" r="50" />
-        <circle cx="160" cy="100" r="50" />
-        <circle cx="160" cy="200" r="50" />
-        <line x1="20" y1="150" x2="300" y2="150" />
-        <line x1="160" y1="20" x2="160" y2="290" />
-        <line x1="60" y1="50" x2="260" y2="250" />
-        <line x1="260" y1="50" x2="60" y2="250" />
-      </g>
-      {/* ark işareti */}
-      <path d="M160 70 a 80 80 0 1 0 80 80" fill="none" stroke="#B3162B" strokeWidth="14" strokeLinecap="round" />
-      <text x="160" y="186" textAnchor="middle" fill="#F5F5F2" fontSize="110" fontWeight="800" style={DISPLAY}>
-        N
-      </text>
-      <g fill="#E5311B">
-        <rect x="118" y="214" width="12" height="12" />
-        <rect x="136" y="228" width="9" height="9" opacity=".7" />
-        <rect x="122" y="240" width="7" height="7" opacity=".45" />
-      </g>
-      {/* ölçü etiketleri */}
-      <g style={FONT} fontSize="11" fontWeight="600" fill="#A1A1AA">
-        <text x="246" y="64">
-          ø 160
-        </text>
-        <text x="24" y="300">
-          #B3162B
-        </text>
-      </g>
-      {/* renk şeridi */}
-      <g>
-        <rect x="200" y="276" width="24" height="24" rx="12" fill="#5C0A15" stroke="#F5F5F2" strokeOpacity=".2" />
-        <rect x="230" y="276" width="24" height="24" rx="12" fill="#B3162B" />
-        <rect x="260" y="276" width="24" height="24" rx="12" fill="#E5311B" />
-        <rect x="290" y="276" width="24" height="24" rx="12" fill="#F5F5F2" />
-      </g>
-    </>
-  );
-}
-
 /* ---------------- Sosyal medya + web ---------------- */
 function Social({ id }: { id: string }) {
   return (
@@ -410,8 +318,6 @@ const ARTS: Record<ArtName, (p: { id: string }) => React.JSX.Element> = {
   camera: Camera,
   drone: Drone,
   screen: Screen,
-  dashboard: Dashboard,
-  brand: Brand,
   social: Social,
 };
 

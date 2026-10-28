@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { LogoMark } from "@/components/brand/LogoMark";
+import { LogoImage } from "@/components/brand/Logo";
 import { categoryLabels, type Work } from "@/content/works";
 import { cn } from "@/lib/utils";
 
@@ -42,7 +42,7 @@ export function WorkCover({
           className="work-zoom absolute inset-0 grid place-items-center"
           style={{ background: cover.gradient }}
         >
-          <LogoMark decorative className="h-16 w-16 opacity-25" />
+          <LogoImage className="h-16 w-16 opacity-40 lg:h-16 lg:w-16" />
         </div>
       )}
       {/* renk işlem katmanı + alttan karartma */}
