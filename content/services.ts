@@ -2,13 +2,19 @@ import type { Hizmet } from "@/lib/validation";
 
 export type Group = "uretim" | "performans" | "marka" | "sosyal-web";
 
-export const groups: Record<Group, { title: string; blurb: string }> = {
-  uretim: { title: "Prodüksiyon", blurb: "Markanızı görüntüyle anlatan profesyonel üretim." },
-  performans: { title: "Performans", blurb: "Doğru kitleye ulaşan, ölçülen reklamlar." },
-  marka: { title: "Marka ve Tasarım", blurb: "Her yerde aynı güçle görünen marka dili." },
+// anchor: /hizmetler sayfasındaki bölüm bağlantısı (#...)
+export const groups: Record<Group, { title: string; blurb: string; anchor: string }> = {
+  uretim: { title: "Prodüksiyon", blurb: "Markanızı görüntüyle anlatan profesyonel üretim.", anchor: "uretim" },
+  performans: {
+    title: "Reklam Yönetimi",
+    blurb: "Doğru kitleye ulaşan, ölçülen reklamlar.",
+    anchor: "reklam-yonetimi",
+  },
+  marka: { title: "Marka ve Tasarım", blurb: "Her yerde aynı güçle görünen marka dili.", anchor: "marka" },
   "sosyal-web": {
-    title: "Sosyal ve Web",
+    title: "Sosyal Medya Yönetimi ve Web Sitesi Tasarımı",
     blurb: "Sürekli görünür, her cihazda hızlı bir dijital varlık.",
+    anchor: "sosyal-medya-ve-web-sitesi",
   },
 };
 

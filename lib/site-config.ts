@@ -5,7 +5,7 @@ const rawUrl =
     : "http://localhost:3000");
 
 export const SITE = {
-  name: "Nexva Dijital",
+  name: "Nexva Digital",
   tagline: "Markanızı dijitalde büyütün",
   url: rawUrl.replace(/\/$/, ""),
   allowIndexing: process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true",
@@ -42,7 +42,7 @@ export const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encod
 export const waLink = (text?: string) =>
   `https://wa.me/${SITE.phone.wa}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
 
-export const DEFAULT_WA_TEXT = "Merhaba Nexva Dijital, web sitenizden ulaşıyorum.";
+export const DEFAULT_WA_TEXT = "Merhaba Nexva Digital, web sitenizden ulaşıyorum.";
 
 /**
  * Teklif formunun gönderim yolu.

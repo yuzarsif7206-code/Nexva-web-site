@@ -21,34 +21,51 @@ export default function ServicesPage() {
   return (
     <>
       <PageIntro eyebrow="HİZMETLER" title={copy.pages.services.title} sub={copy.pages.services.sub}>
-        <nav aria-label="Hizmet grupları" className="hero-in mt-10 flex flex-wrap gap-2" style={{ ["--i" as string]: 3 }}>
-          {groupOrder.map((g) => (
-            <a
-              key={g}
-              href={`#${g}`}
-              className="inline-flex min-h-11 items-center rounded-full border border-white/15 bg-white/5 px-4 text-sm font-semibold transition-colors hover:border-accent hover:text-accent"
-            >
-              {groups[g].title}
-            </a>
-          ))}
+        {/* Mobilde yatay kaydırılır, geniş ekranda alt satıra sarılır */}
+        <nav
+          aria-label="Hizmet grupları"
+          className="hero-in no-scrollbar -mx-5 mt-10 overflow-x-auto px-5 md:mx-0 md:overflow-visible md:px-0"
+          style={{ ["--i" as string]: 3 }}
+        >
+          <ul className="flex w-max gap-2 md:w-auto md:flex-wrap">
+            {groupOrder.map((g) => (
+              <li key={g}>
+                <a
+                  href={`#${groups[g].anchor}`}
+                  className="inline-flex min-h-11 items-center rounded-full border border-white/15 bg-white/5 px-4 text-sm font-semibold whitespace-nowrap transition-colors hover:border-accent hover:text-accent"
+                >
+                  {groups[g].title}
+                </a>
+              </li>
+            ))}
+          </ul>
         </nav>
       </PageIntro>
 
       {groupOrder.map((g, gi) => {
         const list = services.filter((s) => s.group === g);
         return (
-          <section key={g} id={g} aria-labelledby={`${g}-title`} className="border-t border-white/[0.06] py-14 md:py-20">
+          <section
+            key={g}
+            id={groups[g].anchor}
+            aria-labelledby={`${groups[g].anchor}-title`}
+            className="border-t border-white/[0.06] py-14 md:py-20"
+          >
             <div className="container-x grid gap-8 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-16">
               <div className="lg:sticky lg:top-28 lg:self-start">
                 <span
                   aria-hidden
                   data-text={pad2(gi + 1)}
-                  className="ghost-text display block text-5xl text-white/10 tabular-nums md:text-7xl"
+                  className="ghost-text display block text-5xl leading-none text-white/10 tabular-nums md:text-7xl"
                 />
-                <h2 id={`${g}-title`} className="display h2-section mt-2">
+                {/* tüm bölümlerde aynı boyut; uzun başlık 2-3 satıra dengeli sarılır */}
+                <h2
+                  id={`${groups[g].anchor}-title`}
+                  className="display mt-3 text-balance text-[clamp(2rem,3.4vw,3.25rem)] leading-[1.08]"
+                >
                   {groups[g].title}
                 </h2>
-                <p className="mt-3 max-w-sm text-[1.0625rem] text-muted">{groups[g].blurb}</p>
+                <p className="mt-4 max-w-sm text-[1.0625rem] text-muted">{groups[g].blurb}</p>
               </div>
               <ul className="grid gap-4">
                 {list.map((s, i) => {

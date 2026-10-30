@@ -8,7 +8,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "İşlerimiz",
   description:
-    "Nexva Dijital'in ürettiği reklam filmleri, dron çekimleri, kampanyalar ve tasarımlar Instagram hesabımızda. Batman ve çevresindeki markalar için.",
+    "Nexva Digital'in ürettiği reklam filmleri, dron çekimleri, kampanyalar ve tasarımlar Instagram hesabımızda. Batman ve çevresindeki markalar için.",
   path: "/isler",
 });
 

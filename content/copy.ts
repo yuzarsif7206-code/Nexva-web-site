@@ -7,8 +7,8 @@ export const copy = {
     sideLabels: ["Reklam çekimi", "Prodüksiyon", "Meta reklam yönetimi", "Web site tasarımı", "Baskı / Promosyon"],
   },
   about: {
-    labels: ["NEXVA DİJİTAL", "ÇEKİM & DRON", "REKLAM & SOSYAL MEDYA", "TASARIM & WEB"],
-    text: "Nexva Dijital, Batman merkezli bir reklam, prodüksiyon ve dijital medya ajansıdır. Markaların dijitalde görünür olması için gereken her şeyi (çekim, tasarım, Meta reklam yönetimi ve web sitesi tasarımı) tek çatı altında üretiyoruz. Amacımız, yerel işletmeleri bulundukları bölgenin en çok konuşulan markası haline getirmek.",
+    labels: ["NEXVA DIGITAL", "ÇEKİM & DRON", "REKLAM & SOSYAL MEDYA", "TASARIM & WEB"],
+    text: "Nexva Digital, Batman merkezli bir reklam, prodüksiyon ve dijital medya ajansıdır. Markaların dijitalde görünür olması için gereken her şeyi (çekim, tasarım, Meta reklam yönetimi ve web sitesi tasarımı) tek çatı altında üretiyoruz. Amacımız, yerel işletmeleri bulundukları bölgenin en çok konuşulan markası haline getirmek.",
   },
   ticker: [
     "REKLAM FİLMİ",
@@ -38,8 +38,8 @@ export const copy = {
   },
   oneTime: {
     eyebrow: "TEK SEFERLİK PROJELER",
-    title: "İHTİYACIN TEK BİR İŞSE",
-    sub: "Sadece ihtiyacınız olan iş için çalışırız. Kapsam baştan yazılı ve net.",
+    // iki dengeli satır
+    titleLines: ["İHTİYACIN", "TEK BİR İŞSE"],
     cta: "Teklif al",
     adNote: "Reklam harcaması hizmet bedeline dahil değildir.",
   },
@@ -73,7 +73,7 @@ export const copy = {
   },
   footer: {
     blurb:
-      "Nexva Dijital; reklam, prodüksiyon ve dijital medya ajansı. Markaları dijitalde görünür kılar.",
+      "Nexva Digital; reklam, prodüksiyon ve dijital medya ajansı. Markaları dijitalde görünür kılar.",
   },
   pages: {
     services: {

@@ -11,7 +11,7 @@ export function buildLeadMessage(parts: {
   not?: string;
 }) {
   return [
-    "Merhaba Nexva Dijital, web sitenizden teklif talebi bırakıyorum.",
+    "Merhaba Nexva Digital, web sitenizden teklif talebi bırakıyorum.",
     `İstenen: ${parts.secim}`,
     parts.asama && `Aşama: ${parts.asama}`,
     parts.butce && `Hizmet bütçesi: ${parts.butce}`,

@@ -19,7 +19,7 @@ export default function HomePage() {
           name: SITE.name,
           url: SITE.url,
           image: `${SITE.url}/opengraph-image`,
-          logo: `${SITE.url}/brand/nexva-logo-512.png`,
+          logo: `${SITE.url}/brand/nexva-logo.png`,
           telephone: SITE.phone.tel,
           email: SITE.email,
           address: {

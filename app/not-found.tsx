@@ -5,7 +5,7 @@ import { Logo } from "@/components/brand/Logo";
 import { PillCta } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: { absolute: "Sayfa bulunamadı | Nexva Dijital" },
+  title: { absolute: "Sayfa bulunamadı | Nexva Digital" },
   robots: { index: false, follow: false },
 };
 

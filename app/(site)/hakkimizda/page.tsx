@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Hakkımızda",
   description:
-    "Nexva Dijital, Batman merkezli bir reklam, prodüksiyon ve dijital medya ajansıdır. Çekim, tasarım, Meta reklam yönetimi ve web sitesi tasarımı tek çatı altında.",
+    "Nexva Digital, Batman merkezli bir reklam, prodüksiyon ve dijital medya ajansıdır. Çekim, tasarım, Meta reklam yönetimi ve web sitesi tasarımı tek çatı altında.",
   path: "/hakkimizda",
 });
 

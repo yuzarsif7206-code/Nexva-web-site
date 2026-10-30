@@ -33,7 +33,7 @@ export function Footer() {
 
       <div className="container-x grid gap-12 pt-16 pb-10 md:grid-cols-2 md:pt-20 lg:grid-cols-[1.4fr_1fr_1.2fr_1fr] lg:gap-10">
         <div className="flex flex-col gap-5">
-          <Logo className="self-start" />
+          <Logo className="self-start" size="footer" />
           <p className="future text-lg text-fg">
             MARKANIZI DİJİTALDE <span className="text-accent">BÜYÜTÜN.</span>
           </p>
@@ -135,7 +135,7 @@ export function Footer() {
 
       <div className="container-x flex flex-col gap-3 border-t border-white/[0.06] py-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
         <p>
-          © <CurrentYear /> Nexva Dijital. Tüm hakları saklıdır.
+          © <CurrentYear /> Nexva Digital. Tüm hakları saklıdır.
         </p>
         <Link href="/kvkk" className="inline-flex min-h-11 items-center transition-colors hover:text-fg">
           KVKK Aydınlatma Metni

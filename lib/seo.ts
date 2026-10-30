@@ -2,18 +2,18 @@ import type { Metadata } from "next";
 import { SITE } from "./site-config";
 
 export const DEFAULT_TITLE =
-  "Nexva Dijital | Reklam Filmi, Dron Çekimi, Sosyal Medya ve Reklam Yönetimi · Batman";
+  "Nexva Digital | Reklam Filmi, Dron Çekimi, Sosyal Medya ve Reklam Yönetimi · Batman";
 export const DEFAULT_DESCRIPTION =
-  "Batman merkezli Nexva Dijital: reklam filmi, dron çekimi, sosyal medya yönetimi, Meta ve Google reklamları, marka kimliği ve web sitesi. Teklif alın.";
+  "Batman merkezli Nexva Digital: reklam filmi, dron çekimi, sosyal medya yönetimi, Meta ve Google reklamları, marka kimliği ve web sitesi. Teklif alın.";
 
 export const DEFAULT_OG_IMAGE = {
   url: "/opengraph-image",
   width: 1200,
   height: 630,
-  alt: "Nexva Dijital — Markanı dijitalde büyüt",
+  alt: "Nexva Digital — Markanı dijitalde büyüt",
 };
 
-/** Alt sayfalar için "{Sayfa} | Nexva Dijital" kalıbı + canonical + OG. */
+/** Alt sayfalar için "{Sayfa} | Nexva Digital" kalıbı + canonical + OG. */
 export function pageMetadata({
   title,
   description,

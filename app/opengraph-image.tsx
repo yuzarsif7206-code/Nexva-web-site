@@ -29,7 +29,7 @@ export default function OpengraphImage() {
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={logo} width={360} height={360} alt="" />
+        <img src={logo} width={314} height={360} alt="" />
         <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
           <div style={{ display: "flex", fontSize: 44, letterSpacing: 2 }}>NEXVA DIGITAL</div>
           <div style={{ display: "flex", flexDirection: "column", fontSize: 104, lineHeight: 0.92 }}>

@@ -61,14 +61,14 @@ Toplam süre: yaklaşık 30–45 dakika. Kod tarafı hazır; aşağıdaki adıml
 
 ## D. Alan adı bağlama (alan adını aldığınızda)
 
-11. Alan adını herhangi bir firmadan alın (ör. `nexvadijital.com`).
-12. Vercel > proje > **Settings > Domains > Add**: `nexvadijital.com` yazın. "www" yönlendirmesini önerdiği gibi ekleyin.
+11. Alan adını herhangi bir firmadan alın (ör. `nexvadigital.com`).
+12. Vercel > proje > **Settings > Domains > Add**: `nexvadigital.com` yazın. "www" yönlendirmesini önerdiği gibi ekleyin.
 13. Vercel'in gösterdiği DNS kayıtlarını alan adı firmanızın paneline girin. Genellikle:
     - `@` için **A** kaydı → `76.76.21.21`
     - `www` için **CNAME** kaydı → `cname.vercel-dns.com`
 
     (Vercel ekranındaki değerler farklıysa onları kullanın.) Yayılması birkaç dakika ile birkaç saat sürebilir; Vercel SSL sertifikasını otomatik kurar.
-14. **Settings > Environment Variables**: `NEXT_PUBLIC_SITE_URL` = `https://nexvadijital.com`, `NEXT_PUBLIC_ALLOW_INDEXING` = `true`. Sonra **Redeploy**.
+14. **Settings > Environment Variables**: `NEXT_PUBLIC_SITE_URL` = `https://nexvadigital.com`, `NEXT_PUBLIC_ALLOW_INDEXING` = `true`. Sonra **Redeploy**.
 15. https://search.google.com/search-console adresinde alan adınızı ekleyin, **Sitemaps** bölümüne `sitemap.xml` yazıp gönderin.
 16. Yayına almadan önce KVKK sayfasındaki "hukuki danışman" notunu kaldırın: `app/(site)/kvkk/page.tsx` (metni bir hukukçuya okutun).
 17. Instagram biyografinize site bağlantısını ekleyin.

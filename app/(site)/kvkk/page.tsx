@@ -5,7 +5,7 @@ import { SITE, fullAddress } from "@/lib/site-config";
 export const metadata = pageMetadata({
   title: "KVKK Aydınlatma Metni",
   description:
-    "Nexva Dijital teklif formu aracılığıyla işlenen kişisel veriler hakkında 6698 sayılı KVKK kapsamında aydınlatma metni.",
+    "Nexva Digital teklif formu aracılığıyla işlenen kişisel veriler hakkında 6698 sayılı KVKK kapsamında aydınlatma metni.",
   path: "/kvkk",
 });
 
@@ -25,7 +25,7 @@ export default function KvkkPage() {
             <h2 className={H2}>1. Veri sorumlusu</h2>
             <p>
               6698 sayılı Kişisel Verilerin Korunması Kanunu (&quot;KVKK&quot;) uyarınca kişisel verileriniz, veri
-              sorumlusu sıfatıyla <strong>Nexva Dijital</strong> tarafından aşağıda açıklanan kapsamda işlenmektedir.
+              sorumlusu sıfatıyla <strong>Nexva Digital</strong> tarafından aşağıda açıklanan kapsamda işlenmektedir.
             </p>
             <ul>
               <li>Adres: {fullAddress}</li>

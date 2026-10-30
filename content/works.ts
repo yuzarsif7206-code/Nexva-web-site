@@ -1,5 +1,5 @@
 import type { Hizmet } from "@/lib/validation";
-import type { Group } from "./services";
+import { groups, type Group } from "./services";
 import { placeholderWorks } from "./works.placeholder";
 
 export type WorkImage = {
@@ -29,11 +29,12 @@ export type Work = {
  */
 export const works: Work[] = [];
 
+// Kategori adları hizmet grup adlarıyla aynı kaynaktan gelir
 export const categoryLabels: Record<Group, string> = {
-  uretim: "Prodüksiyon",
-  performans: "Performans",
-  marka: "Marka ve Tasarım",
-  "sosyal-web": "Sosyal ve Web",
+  uretim: groups.uretim.title,
+  performans: groups.performans.title,
+  marka: groups.marka.title,
+  "sosyal-web": groups["sosyal-web"].title,
 };
 
 export const PLACEHOLDER_MODE = process.env.NEXT_PUBLIC_USE_PLACEHOLDER_WORKS === "true";

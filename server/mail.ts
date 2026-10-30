@@ -96,7 +96,7 @@ export async function sendLeadMail(d: LeadPayload, id?: string): Promise<{ ok: b
 
   try {
     await getTransporter().sendMail({
-      from: `"Nexva Dijital Web" <${process.env.GMAIL_USER}>`,
+      from: `"Nexva Digital Web" <${process.env.GMAIL_USER}>`,
       to: process.env.LEAD_TO_EMAIL || process.env.GMAIL_USER,
       replyTo: d.eposta || undefined,
       subject,

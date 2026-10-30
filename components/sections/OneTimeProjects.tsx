@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight, Check, Info } from "lucide-react";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Eyebrow } from "@/components/ui/SectionHeading";
 import { iconMap } from "@/components/ui/icons";
 import { copy } from "@/content/copy";
 import { projects } from "@/content/projects";
@@ -9,14 +9,20 @@ export function OneTimeProjects() {
   return (
     <section id="projeler" aria-labelledby="onetime-title" className="section-y relative">
       <div className="container-x">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
-          <div className="lg:sticky lg:top-28 lg:self-start">
-            <SectionHeading
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+          {/* etiket kartların üst kenarıyla aynı hizada başlar */}
+          <div className="flex flex-col gap-4 lg:sticky lg:top-28 lg:self-start lg:gap-5">
+            <Eyebrow>{copy.oneTime.eyebrow}</Eyebrow>
+            <h2
               id="onetime-title"
-              eyebrow={copy.oneTime.eyebrow}
-              title={copy.oneTime.title}
-              sub={copy.oneTime.sub}
-            />
+              className="display text-[clamp(2.25rem,4.5vw,4rem)] leading-[1.08] tracking-[0.015em] text-fg"
+            >
+              {copy.oneTime.titleLines.map((l) => (
+                <span key={l} className="block">
+                  {l}
+                </span>
+              ))}
+            </h2>
           </div>
           <ul className="grid gap-4 md:grid-cols-2 lg:gap-5">
             {projects.map((p, i) => {

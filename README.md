@@ -1,4 +1,4 @@
-# Nexva Dijital — Web Sitesi
+# Nexva Digital — Web Sitesi
 
 Next.js 16 (App Router, Cache Components) · React 19 · TypeScript · Tailwind CSS v4 · Vercel
 
@@ -67,7 +67,7 @@ E-posta modunda form, ortam değişkenleri girilmeden de açılır. Gönderim ba
 - **Telefon, e-posta, adres, saatler, Instagram:** `lib/site-config.ts`
 - **Tüm metinler:** `content/copy.ts`, `content/services.ts`, `content/packages.ts`, `content/projects.ts`
 - **Fiyatlar (sitede görünmez, yalnızca size gelen e-postada):** `server/internal-pricing.ts`
-- **Logo:** `public/brand/` (resmi logonun yalnızca boyutlandırılmış kopyaları), sekme ikonları `app/icon.png` ve `app/apple-icon.png`.
+- **Logo:** `public/brand/nexva-logo.webp` (navbar/footer) ve `nexva-logo.png` (512 px): resmi logonun arka planı şeffaflaştırılmış, tasarımı değiştirilmemiş kopyaları. Sekme ikonları `app/icon.png` ve `app/apple-icon.png` aynı logoyu koyu zemin üzerinde kullanır.
 - **Hero'daki 3 kutu:** kamera lensi illüstrasyonu, laptop fotoğrafı (`public/hero/laptop.webp`, marka paletine tonlandı) ve tasarım ekranı illüstrasyonu. İllüstrasyonlar: `components/art/TileArt.tsx`. Gerçek fotoğrafa geçmek için 320×320 AVIF/WebP (kırmızı-siyah tek ton, ≤12 KB) dosyaları `public/hero/` altına koyup `content/hero-tiles.ts` içinde `src: "/hero/cekim.avif"` gibi doldurun; `src` varsa illüstrasyon yerine fotoğraf görünür.
 - **İşler (portföy):** Görselleri `public/works/<slug>/` altına koyun (AVIF/WebP, en geniş kenar 1600 px), `content/works.ts` içindeki `works` dizisine kayıt ekleyin:
 

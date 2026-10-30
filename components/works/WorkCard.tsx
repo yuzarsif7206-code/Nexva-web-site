@@ -42,7 +42,7 @@ export function WorkCover({
           className="work-zoom absolute inset-0 grid place-items-center"
           style={{ background: cover.gradient }}
         >
-          <LogoImage className="h-16 w-16 opacity-40 lg:h-16 lg:w-16" />
+          <LogoImage className="h-16 opacity-40" />
         </div>
       )}
       {/* renk işlem katmanı + alttan karartma */}

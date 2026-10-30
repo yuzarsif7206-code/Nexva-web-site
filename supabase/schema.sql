@@ -1,4 +1,4 @@
--- Nexva Dijital: teklif talepleri tablosu
+-- Nexva Digital: teklif talepleri tablosu
 -- Supabase > SQL Editor > New query > bu dosyanın tamamını yapıştırıp "Run".
 
 create table if not exists public.leads (
