@@ -29,4 +29,4 @@ export const iconMap: Record<IconName, LucideIcon> = {
   Video,
 };
 
-export { InstagramIcon, WhatsAppIcon } from "./brand-icons";
+export { InstagramIcon, LinkedInIcon, WhatsAppIcon } from "./brand-icons";

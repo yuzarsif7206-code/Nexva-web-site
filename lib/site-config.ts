@@ -30,6 +30,7 @@ export const SITE = {
   social: {
     instagram: "https://www.instagram.com/nexvadigital/",
     instagramHandle: "@nexvadigital",
+    linkedin: "https://www.linkedin.com/in/nexva-digital-580106448/",
   },
   responseSla: "24 saat",
 } as const;

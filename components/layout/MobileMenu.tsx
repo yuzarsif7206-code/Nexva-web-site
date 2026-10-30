@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { ArrowUpRight, Phone, X } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
-import { InstagramIcon, WhatsAppIcon } from "@/components/ui/brand-icons";
+import { InstagramIcon, LinkedInIcon, WhatsAppIcon } from "@/components/ui/brand-icons";
 import { DEFAULT_WA_TEXT, NAV, SITE, waLink } from "@/lib/site-config";
 
 const LINKS = [...NAV, { href: "/teklif-al", label: "Teklif Al" }] as const;
@@ -118,7 +118,7 @@ export function MobileMenu({
       </nav>
 
       <div
-        className="menu-item container-x relative grid grid-cols-3 gap-2 pt-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))]"
+        className="menu-item container-x relative grid grid-cols-4 gap-2 pt-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))]"
         style={{ ["--i" as string]: LINKS.length }}
       >
         <a
@@ -145,6 +145,15 @@ export function MobileMenu({
         >
           <InstagramIcon className="h-5 w-5" />
           Instagram
+        </a>
+        <a
+          href={SITE.social.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="glass flex min-h-14 flex-col items-center justify-center gap-1 rounded-2xl text-xs font-semibold transition-transform active:scale-95"
+        >
+          <LinkedInIcon className="h-5 w-5" />
+          LinkedIn
         </a>
       </div>
     </div>

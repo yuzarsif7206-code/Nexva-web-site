@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
-import { InstagramIcon, WhatsAppIcon } from "@/components/ui/icons";
+import { InstagramIcon, LinkedInIcon, WhatsAppIcon } from "@/components/ui/icons";
 import { copy } from "@/content/copy";
 import { DEFAULT_WA_TEXT, NAV, SITE, mapsLink, waLink } from "@/lib/site-config";
 import { CurrentYear } from "./CurrentYear";
@@ -104,6 +104,15 @@ export function Footer() {
               className="grid h-12 w-12 place-items-center rounded-full border border-white/15 transition-[background-color,border-color,transform] duration-200 hover:border-accent hover:bg-accent active:scale-95"
             >
               <InstagramIcon />
+            </a>
+            <a
+              href={SITE.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn: Nexva Digital"
+              className="grid h-12 w-12 place-items-center rounded-full border border-white/15 transition-[background-color,border-color,transform] duration-200 hover:border-accent hover:bg-accent active:scale-95"
+            >
+              <LinkedInIcon />
             </a>
             <a
               href={waLink(DEFAULT_WA_TEXT)}

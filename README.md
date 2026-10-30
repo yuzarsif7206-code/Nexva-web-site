@@ -64,7 +64,7 @@ E-posta modunda form, ortam değişkenleri girilmeden de açılır. Gönderim ba
 
 ## 3. İçerik güncelleme
 
-- **Telefon, e-posta, adres, saatler, Instagram:** `lib/site-config.ts`
+- **Telefon, e-posta, adres, saatler, Instagram, LinkedIn:** `lib/site-config.ts`
 - **Tüm metinler:** `content/copy.ts`, `content/services.ts`, `content/packages.ts`, `content/projects.ts`
 - **Fiyatlar (sitede görünmez, yalnızca size gelen e-postada):** `server/internal-pricing.ts`
 - **Logo:** `public/brand/nexva-logo.webp` (navbar/footer) ve `nexva-logo.png` (512 px): resmi logonun arka planı şeffaflaştırılmış, tasarımı değiştirilmemiş kopyaları. Sekme ikonları `app/icon.png` ve `app/apple-icon.png` aynı logoyu koyu zemin üzerinde kullanır.

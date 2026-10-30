@@ -37,7 +37,7 @@ export default function HomePage() {
               closes: "22:00",
             },
           ],
-          sameAs: [SITE.social.instagram],
+          sameAs: [SITE.social.instagram, SITE.social.linkedin],
           areaServed: "Batman",
         }}
       />

@@ -11,6 +11,14 @@ export function InstagramIcon({ className = "h-5 w-5" }: { className?: string })
   );
 }
 
+export function LinkedInIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden>
+      <path d="M4.98 3.5a2.48 2.48 0 1 1 0 4.96 2.48 2.48 0 0 1 0-4.96ZM3 9.75h3.96V21H3V9.75Zm6.44 0h3.8v1.54h.05c.53-.95 1.82-1.95 3.75-1.95 4.01 0 4.75 2.5 4.75 5.76V21h-3.96v-5.2c0-1.24-.02-2.84-1.83-2.84-1.83 0-2.1 1.36-2.1 2.75V21H9.44V9.75Z" />
+    </svg>
+  );
+}
+
 export function WhatsAppIcon({ className = "h-5 w-5" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden>
