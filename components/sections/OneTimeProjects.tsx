@@ -11,7 +11,7 @@ export function OneTimeProjects() {
       <div className="container-x">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
           {/* etiket kartların üst kenarıyla aynı hizada başlar */}
-          <div className="flex flex-col gap-4 lg:sticky lg:top-28 lg:self-start lg:gap-5">
+          <div className="flex flex-col gap-4 lg:sticky lg:top-36 lg:self-start lg:gap-5">
             <Eyebrow>{copy.oneTime.eyebrow}</Eyebrow>
             <h2
               id="onetime-title"

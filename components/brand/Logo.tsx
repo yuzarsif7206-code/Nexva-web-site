@@ -17,7 +17,7 @@ export function LogoImage({ className, priority }: { className?: string; priorit
       unoptimized
       priority={priority}
       // className verilirse varsayılan yüksekliğin yerine geçer (çakışan sınıf olmasın)
-      className={cn("w-auto shrink-0", className ?? "h-[46px] lg:h-[60px]")}
+      className={cn("w-auto shrink-0", className ?? "h-[54px] lg:h-[76px]")}
     />
   );
 }
@@ -41,9 +41,9 @@ export function Logo({
     >
       <LogoImage priority={size === "nav"} className={size === "footer" ? "h-[64px] lg:h-[72px]" : undefined} />
       <span className="flex flex-col leading-none">
-        <span className="font-display text-[1.5rem] font-extrabold italic tracking-[-0.01em] lg:text-[1.75rem]">NEXVA</span>
+        <span className="font-display text-[1.625rem] font-extrabold italic tracking-[-0.01em] lg:text-[2rem]">NEXVA</span>
         {/* lang="en": Türkçe büyük harf kuralı "I"yı "İ" yapmasın */}
-        <span lang="en" className="mt-1 text-[0.625rem] font-semibold tracking-[0.32em] text-muted lg:text-[0.6875rem]">
+        <span lang="en" className="mt-1 text-[0.6875rem] font-semibold tracking-[0.32em] text-muted lg:text-[0.75rem]">
           DIGITAL
         </span>
       </span>

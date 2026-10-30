@@ -9,7 +9,7 @@ export function Process({ compact = false }: { compact?: boolean }) {
   return (
     <section aria-labelledby={`${listId}-title`} className="section-y relative">
       <div className="container-x grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
-        <div className="flex flex-col gap-10 lg:sticky lg:top-28 lg:self-start">
+        <div className="flex flex-col gap-10 lg:sticky lg:top-36 lg:self-start">
           <SectionHeading id={`${listId}-title`} eyebrow={process.eyebrow} title={process.title} compact />
           <ProcessRing targetId={listId} total={process.steps.length} />
         </div>

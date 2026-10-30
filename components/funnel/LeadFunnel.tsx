@@ -418,7 +418,7 @@ function Frame({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-[calc(100svh-4rem)] flex-col lg:min-h-[calc(100svh-5rem)]">
+    <div className="flex min-h-[calc(100svh-78px)] flex-col lg:min-h-[calc(100svh-116px)]">
       <div className="container-x w-full max-w-3xl flex-1 pt-6 pb-10 md:pt-10">
         {top && <div className="mb-8 md:mb-12">{top}</div>}
         {children}

@@ -87,7 +87,12 @@ html.lenis {
   pointer-events: none;
 }
 [id] {
-  scroll-margin-top: 6rem;
+  scroll-margin-top: 6.5rem;
+}
+@media (min-width: 1024px) {
+  [id] {
+    scroll-margin-top: 8.5rem;
+  }
 }
 
 /* Bileşen sınıfları components katmanında: Tailwind yardımcı sınıfları bunları ezebilir. */
@@ -697,7 +702,45 @@ html.lenis {
     border-color 0.3s ease;
 }
 .header-shell[data-hidden="true"] {
-  transform: translateY(-100%);
+  /* alttaki yumuşak geçiş de ekrandan çıksın */
+  transform: translateY(calc(-100% - 32px));
+}
+
+/* Navbar zemini: yarı saydam koyu kırmızımsı geçiş + logonun arkasında yoğun koyu radyal gölge.
+   Logoya değil zemine uygulanır; içerik (logo, menü) bu katmanın üstündedir. */
+.nav-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(340px 190% at 0% 50%, rgb(5 4 5 / 0.9), rgb(8 4 6 / 0.62) 42%, transparent 78%),
+    linear-gradient(180deg, rgb(26 6 10 / 0.4) 0%, rgb(14 5 8 / 0.62) 100%);
+  transition: opacity 0.3s ease;
+}
+/* alt kenarın altında yumuşak sönüm: kırmızı hero üzerinde sert bant kenarı olmasın */
+.nav-scrim::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  height: 28px;
+  background: linear-gradient(180deg, rgb(12 5 8 / 0.42), transparent);
+}
+/* kaydırılınca zemin bir kademe koyulaşır (blur zaten açık) */
+.header-shell[data-scrolled="true"] .nav-scrim {
+  background:
+    radial-gradient(340px 190% at 0% 50%, rgb(5 4 5 / 0.92), rgb(8 4 6 / 0.7) 42%, transparent 78%),
+    linear-gradient(180deg, rgb(18 6 9 / 0.68) 0%, rgb(10 9 10 / 0.82) 100%);
+}
+/* Alt çizgi: 1px, soldan sağa sönen kırmızı-bordo geçiş */
+.nav-line {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgb(179 22 43 / 0.75) 0%, rgb(229 49 27 / 0.38) 38%, rgb(179 22 43 / 0.12) 70%, transparent 92%);
 }
 
 /* Mobil menü perdesi */

@@ -52,7 +52,7 @@ export default function ServicesPage() {
             className="border-t border-white/[0.06] py-14 md:py-20"
           >
             <div className="container-x grid gap-8 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-16">
-              <div className="lg:sticky lg:top-28 lg:self-start">
+              <div className="lg:sticky lg:top-36 lg:self-start">
                 <span
                   aria-hidden
                   data-text={pad2(gi + 1)}

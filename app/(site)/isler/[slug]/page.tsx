@@ -44,7 +44,7 @@ export default async function WorkDetailPage({ params }: PageProps<"/isler/[slug
   const next = all.length > 1 ? all[(idx + 1) % all.length] : undefined;
 
   return (
-    <article className="pt-28 md:pt-36">
+    <article className="pt-28 md:pt-36 lg:pt-40">
       <header className="container-x">
         <Link
           href="/isler"

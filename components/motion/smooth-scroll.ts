@@ -4,7 +4,7 @@ export async function initSmoothScroll(): Promise<() => void> {
   const lenis = new Lenis({
     lerp: 0.1,
     autoRaf: true,
-    anchors: { offset: -96 },
+    anchors: { offset: -132 },
     allowNestedScroll: true,
   });
   return () => lenis.destroy();

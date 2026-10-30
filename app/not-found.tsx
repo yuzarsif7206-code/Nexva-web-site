@@ -14,7 +14,7 @@ export default function NotFound() {
     <main id="icerik" className="relative isolate flex min-h-[100svh] flex-col overflow-hidden">
       <div aria-hidden className="hero-bg absolute inset-0 -z-10 opacity-80" />
       <PixelDissolve className="-z-10" />
-      <div className="container-x flex h-16 items-center lg:h-20">
+      <div className="container-x flex h-[78px] items-center lg:h-[116px]">
         <Logo />
       </div>
       <div className="container-x flex flex-1 flex-col items-center justify-center py-16 text-center">

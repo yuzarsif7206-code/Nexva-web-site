@@ -17,7 +17,7 @@ export default function WorksPage() {
   return (
     <>
       <h1 className="sr-only">İşlerimiz</h1>
-      <section aria-label="İşlerimiz" className="relative isolate pt-28 pb-16 md:pt-36 md:pb-24">
+      <section aria-label="İşlerimiz" className="relative isolate pt-28 pb-16 md:pt-36 md:pb-24 lg:pt-40">
         <div aria-hidden className="hero-bg absolute inset-x-0 top-0 -z-10 h-80 opacity-50" />
         <div aria-hidden className="absolute inset-x-0 top-40 -z-10 h-40 bg-gradient-to-b from-transparent to-bg" />
         <div className="container-x">

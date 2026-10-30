@@ -14,7 +14,7 @@ export function PageIntro({
   children?: React.ReactNode;
 }) {
   return (
-    <section aria-labelledby="page-title" className="relative isolate overflow-hidden pt-32 pb-14 md:pt-40 md:pb-20">
+    <section aria-labelledby="page-title" className="relative isolate overflow-hidden pt-32 pb-14 md:pt-40 md:pb-20 lg:pt-44">
       <div aria-hidden className="hero-bg absolute inset-0 -z-10 opacity-70" />
       <div aria-hidden className="absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-b from-transparent to-bg" />
       <ArcBackdrop id="intro-arc" className="-top-40 -right-40 -z-10 h-[32rem] w-[32rem] md:-top-56 md:-right-32 md:h-[44rem] md:w-[44rem]" intensity={0.6} />

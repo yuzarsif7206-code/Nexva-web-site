@@ -46,14 +46,17 @@ export function Header() {
     <>
       <header
         data-hidden={hidden && !open}
+        data-scrolled={scrolled}
         className={cn(
-          "header-shell fixed inset-x-0 top-0 z-50 border-b",
-          scrolled
-            ? "border-white/[0.06] bg-bg/85 supports-[backdrop-filter]:bg-bg/70 supports-[backdrop-filter]:backdrop-blur-md"
-            : "border-transparent bg-transparent",
+          "header-shell fixed inset-x-0 top-0 z-50 supports-[backdrop-filter]:backdrop-blur-md",
+          // blur desteklemeyen tarayıcılarda (ör. bazı uygulama içi tarayıcılar) kaydırınca düz koyu zemin
+          scrolled && "bg-bg/60 supports-[backdrop-filter]:bg-transparent",
         )}
       >
-        <div className="container-x flex h-16 items-center justify-between lg:grid lg:h-20 lg:grid-cols-[1fr_auto_1fr]">
+        <div aria-hidden className="nav-scrim" />
+        <div aria-hidden className="nav-line" />
+        {/* yükseklik: telefon 78 px (logo 54 + 12/12), masaüstü 116 px (logo 76 + 20/20) */}
+        <div className="container-x relative z-10 flex h-[78px] items-center justify-between lg:grid lg:h-[116px] lg:grid-cols-[1fr_auto_1fr]">
           <Logo onClick={close} />
 
           <nav aria-label="Ana menü" className="hidden lg:block">

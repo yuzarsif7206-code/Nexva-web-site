@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative isolate flex min-h-[100svh] flex-col items-center justify-center overflow-hidden pt-24 pb-14 lg:pt-28"
+      className="relative isolate flex min-h-[100svh] flex-col items-center justify-center overflow-hidden pt-[104px] pb-14 lg:pt-36"
     >
       {/* Arka plan: Seviye 0 CSS degradesi + (varsa) shader + okunurluk örtüsü */}
       <div aria-hidden className="hero-bg absolute inset-0 -z-10 overflow-hidden">

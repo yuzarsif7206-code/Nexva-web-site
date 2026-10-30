@@ -13,7 +13,7 @@ export const metadata = pageMetadata({
 export default function AboutPage() {
   return (
     <>
-      <section aria-labelledby="page-title" className="relative isolate overflow-hidden pt-32 pb-6 md:pt-40 md:pb-10">
+      <section aria-labelledby="page-title" className="relative isolate overflow-hidden pt-32 pb-6 md:pt-40 md:pb-10 lg:pt-44">
         <div aria-hidden className="hero-bg absolute inset-0 -z-10 opacity-60" />
         <div aria-hidden className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-b from-transparent to-bg" />
         <h1 id="page-title" className="sr-only">

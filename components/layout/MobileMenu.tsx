@@ -81,7 +81,10 @@ export function MobileMenu({
       className="menu-curtain fixed inset-0 z-[80] flex flex-col bg-bg lg:hidden"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0 hero-bg opacity-40" />
-      <div className="container-x relative flex h-16 items-center justify-between">
+      <div className="container-x relative isolate flex h-[78px] items-center justify-between">
+        {/* navbar ile aynı koyu zemin ve alt çizgi */}
+        <div aria-hidden className="nav-scrim" />
+        <div aria-hidden className="nav-line" />
         <Logo onClick={onClose} />
         <button
           type="button"

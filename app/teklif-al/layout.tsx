@@ -8,8 +8,10 @@ export default function FunnelLayout({ children }: { children: React.ReactNode }
     <div className="relative isolate min-h-[100svh]">
       <div aria-hidden className="hero-bg pointer-events-none absolute inset-x-0 top-0 -z-10 h-[60svh] opacity-50" />
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-[30svh] -z-10 h-[30svh] bg-gradient-to-b from-transparent to-bg" />
-      <header className="border-b border-white/[0.06]">
-        <div className="container-x flex h-16 items-center justify-between lg:h-20">
+      <header className="relative isolate z-10 supports-[backdrop-filter]:backdrop-blur-md">
+        <div aria-hidden className="nav-scrim" />
+        <div aria-hidden className="nav-line" />
+        <div className="container-x relative flex h-[78px] items-center justify-between lg:h-[116px]">
           <Logo />
           <Link
             href="/"
