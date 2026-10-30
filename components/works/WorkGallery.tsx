@@ -12,7 +12,8 @@ const FILTERS: { key: "tumu" | Group; label: string }[] = [
   { key: "uretim", label: categoryLabels.uretim },
   { key: "performans", label: categoryLabels.performans },
   { key: "marka", label: categoryLabels.marka },
-  { key: "sosyal-web", label: categoryLabels["sosyal-web"] },
+  { key: "sosyal", label: categoryLabels.sosyal },
+  { key: "web", label: categoryLabels.web },
 ];
 
 function Gallery({ works, active }: { works: Work[]; active: string }) {

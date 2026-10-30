@@ -6,7 +6,7 @@ import { Packages } from "@/components/sections/Packages";
 import { PageIntro } from "@/components/sections/PageIntro";
 import { iconMap } from "@/components/ui/icons";
 import { copy } from "@/content/copy";
-import { groupOrder, groups, services } from "@/content/services";
+import { PRINT_ANCHOR, groupOrder, groups, quickLinks, services } from "@/content/services";
 import { pageMetadata } from "@/lib/seo";
 import { pad2 } from "@/lib/utils";
 
@@ -28,13 +28,13 @@ export default function ServicesPage() {
           style={{ ["--i" as string]: 3 }}
         >
           <ul className="flex w-max gap-2 md:w-auto md:flex-wrap">
-            {groupOrder.map((g) => (
-              <li key={g}>
+            {quickLinks.map((q) => (
+              <li key={q.anchor}>
                 <a
-                  href={`#${groups[g].anchor}`}
+                  href={`#${q.anchor}`}
                   className="inline-flex min-h-11 items-center rounded-full border border-white/15 bg-white/5 px-4 text-sm font-semibold whitespace-nowrap transition-colors hover:border-accent hover:text-accent"
                 >
-                  {groups[g].title}
+                  {q.label}
                 </a>
               </li>
             ))}
@@ -71,7 +71,12 @@ export default function ServicesPage() {
                 {list.map((s, i) => {
                   const Icon = iconMap[s.icon];
                   return (
-                    <li key={s.slug} data-reveal={String(i * 60)}>
+                    <li
+                      key={s.slug}
+                      data-reveal={String(i * 60)}
+                      // "Baskı ve Promosyon" kutucuğu bu karta gelir
+                      id={s.slug === "promosyon-baski" ? PRINT_ANCHOR : undefined}
+                    >
                       <article className="card card-arc spot flex flex-col gap-5 p-6 sm:flex-row sm:items-start md:p-8">
                         <span className="grid h-14 w-14 shrink-0 -rotate-6 place-items-center rounded-2xl bg-brand text-white shadow-[0_10px_24px_-10px_rgb(179_22_43/0.8)]">
                           <Icon className="h-7 w-7" aria-hidden strokeWidth={1.75} />

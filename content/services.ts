@@ -1,6 +1,6 @@
 import type { Hizmet } from "@/lib/validation";
 
-export type Group = "uretim" | "performans" | "marka" | "sosyal-web";
+export type Group = "uretim" | "performans" | "marka" | "sosyal" | "web";
 
 // anchor: /hizmetler sayfasındaki bölüm bağlantısı (#...)
 export const groups: Record<Group, { title: string; blurb: string; anchor: string }> = {
@@ -11,14 +11,29 @@ export const groups: Record<Group, { title: string; blurb: string; anchor: strin
     anchor: "reklam-yonetimi",
   },
   marka: { title: "Marka ve Tasarım", blurb: "Her yerde aynı güçle görünen marka dili.", anchor: "marka" },
-  "sosyal-web": {
-    title: "Sosyal Medya Yönetimi ve Web Sitesi Tasarımı",
-    blurb: "Sürekli görünür, her cihazda hızlı bir dijital varlık.",
-    anchor: "sosyal-medya-ve-web-sitesi",
+  sosyal: {
+    title: "Sosyal Medya Yönetimi",
+    blurb: "Sürekli görünür, düzenli ve tutarlı bir sosyal medya varlığı.",
+    anchor: "sosyal-medya-yonetimi",
+  },
+  web: {
+    title: "Web Sitesi Tasarımı",
+    blurb: "Her cihazda hızlı açılan, aramalarda bulunan bir web sitesi.",
+    anchor: "web-sitesi-tasarimi",
   },
 };
 
-export const groupOrder: Group[] = ["uretim", "performans", "marka", "sosyal-web"];
+export const groupOrder: Group[] = ["uretim", "performans", "marka", "sosyal", "web"];
+
+/**
+ * /hizmetler üstündeki hızlı geçiş kutucukları: her grup + "Baskı ve Promosyon"
+ * (Baskı ve Promosyon, Marka ve Tasarım bölümündeki promosyon kartına gider).
+ */
+export const PRINT_ANCHOR = "baski-ve-promosyon";
+export const quickLinks: { label: string; anchor: string }[] = [
+  ...groupOrder.map((g) => ({ label: groups[g].title, anchor: groups[g].anchor })),
+  { label: "Baskı ve Promosyon", anchor: PRINT_ANCHOR },
+];
 
 export type IconName =
   | "Clapperboard"
@@ -89,18 +104,18 @@ export const services: Service[] = [
     group: "marka",
     icon: "Printer",
     title: "Promosyon Baskı Hizmetleri",
-    desc: "Kartvizit, broşür ve promosyon ürünlerinde tasarımdan baskıya tek noktadan çözüm.",
+    desc: "Promosyon ürünlerinde tasarımdan baskıya tek noktadan çözüm.",
   },
   {
     slug: "sosyal-medya",
-    group: "sosyal-web",
+    group: "sosyal",
     icon: "Share2",
     title: "Sosyal Medya Yönetimi ve İçerik Üretimi",
     desc: "İçerik planı, çekim, kurgu ve paylaşım: hesaplarınızı düzenli, tutarlı ve markanıza yakışır şekilde yönetiyoruz.",
   },
   {
     slug: "web-tasarim",
-    group: "sosyal-web",
+    group: "web",
     icon: "Globe",
     title: "Web Sitesi Tasarımı",
     desc: "Mobilde hızlı açılan, aramalarda bulunmaya uygun, markanızı doğru anlatan kurumsal web siteleri.",

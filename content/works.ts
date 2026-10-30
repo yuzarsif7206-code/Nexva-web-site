@@ -34,7 +34,8 @@ export const categoryLabels: Record<Group, string> = {
   uretim: groups.uretim.title,
   performans: groups.performans.title,
   marka: groups.marka.title,
-  "sosyal-web": groups["sosyal-web"].title,
+  sosyal: groups.sosyal.title,
+  web: groups.web.title,
 };
 
 export const PLACEHOLDER_MODE = process.env.NEXT_PUBLIC_USE_PLACEHOLDER_WORKS === "true";

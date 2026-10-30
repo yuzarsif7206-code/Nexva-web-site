@@ -27,7 +27,7 @@ const base = (i: number) => ({
 
 export const placeholderWorks: Work[] = [
   { slug: "ornek-proje-1", title: "Örnek Proje 1", category: "uretim", services: ["reklam-filmi"], ...base(0) },
-  { slug: "ornek-proje-2", title: "Örnek Proje 2", category: "sosyal-web", services: ["sosyal-medya"], ...base(1) },
+  { slug: "ornek-proje-2", title: "Örnek Proje 2", category: "sosyal", services: ["sosyal-medya"], ...base(1) },
   { slug: "ornek-proje-3", title: "Örnek Proje 3", category: "marka", services: ["marka-kimligi"], ...base(2) },
   { slug: "ornek-proje-4", title: "Örnek Proje 4", category: "uretim", services: ["dron-cekimi"], ...base(3) },
   { slug: "ornek-proje-5", title: "Örnek Proje 5", category: "performans", services: ["meta-google-reklam"], ...base(4) },
